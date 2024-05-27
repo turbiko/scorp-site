@@ -1,0 +1,190 @@
+@font-face {
+  font-family: "CrazyV1";
+  font-style: normal;
+  src: local("CrazyV1"), url("CRAZYV1_.woff") format("woff");
+}
+@font-face {
+  font-family: "Kyiv*Type Serif";
+  font-style: normal;
+  src: local("Kyiv*Type Serif"),
+    url("KyivTypeSerif-Regular.woff") format("woff");
+}
+/* variables */
+:root {
+  --max-width-screen: 1920px;
+  --max-width-content: 1550px;
+  --min-width-desktop: 768px;
+
+  --Gray-BG: #383637;
+  --White: #fff;
+  --Gray-Button-1: #2b2b2b;
+  --05-bleach: #ffffff;
+}
+/* default styling */
+html,
+body {
+  width: 100%;
+  min-width: var(--min-width-desktop);
+  color: var(--White, #fff);
+  /* background: var(--Gray-BG, #383637); */
+  background: #252525;
+}
+main {
+  width: min(100%, var(--max-width-screen));
+}
+.grid-page {
+  display: grid;
+  grid-template-rows: 90px auto 203px;
+  min-height: 100svh;
+}
+.margin-centered {
+  margin-inline: auto;
+}
+.flex-row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.content-wrapper {
+  width: min(100%, var(--max-width-content));
+  min-width: var(--min-width-desktop);
+}
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  color: var(--White, #fff);
+  align-content: center;
+}
+.logo-header {
+  width: 104px;
+  height: 75px;
+  flex-shrink: 0;
+  align-self: center;
+  padding-inline: 10px;
+}
+nav {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.25rem, -3.036rem + 8.929vw, 5rem);
+  color: var(--White, #fff);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Unbounded;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.9px;
+  text-transform: uppercase;
+}
+.nav-active {
+  opacity: 0.2;
+}
+/* Header end */
+/* Footer */
+.footer {
+  margin-top: 48px;
+  max-width: var(--max-width-content);
+  min-width: var(--min-width-desktop);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 13px;
+}
+.footer-logo {
+  width: 52px;
+  height: 37px;
+  flex-shrink: 0;
+}
+.footer-data {
+  width: 100%;
+}
+.footer-copy {
+  color: var(--White, #fff);
+  font-family: "Kyiv*Type Serif";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 16px; /* 133.333% */
+}
+.footer-copy a {
+  color: var(--White, #fff);
+  text-decoration-line: underline;
+}
+.footer-socials {
+  display: flex;
+  width: auto;
+  height: 25px;
+  align-items: flex-start;
+  gap: 25px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+/* Footer end */
+/* main block - generic elements */
+.block-for-title {
+}
+.title-block {
+  width: fit-content;
+  height: 65px;
+  flex-shrink: 0;
+  background: #222021;
+}
+.title-block span {
+  display: inline-flex;
+  padding: 0px 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+.title-text {
+  color: var(--Old-Paper, #fecc77);
+  font-family: CrazyV1;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 9.2px;
+  text-transform: uppercase;
+}
+
+/* Button all site func*/
+.hero-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  padding-inline: 20px;
+}
+.hero-button-title {
+  flex: 1 0 0;
+  color: var(--White, #fff);
+  text-align: center;
+  font-family: CrazyV1;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 65px; /* 361.111% */
+  letter-spacing: 2.16px;
+  text-transform: uppercase;
+}
+.hero-button-shadow {
+  border: 1px solid #ccc;
+  background: var(--Gray-Button-1, #2b2b2b);
+  box-shadow: 0px 71px 20px 0px rgba(0, 0, 0, 0.01),
+    0px 45px 18px 0px rgba(0, 0, 0, 0.07), 0px 25px 15px 0px rgba(0, 0, 0, 0.24),
+    0px 11px 11px 0px rgba(0, 0, 0, 0.41), 0px 3px 6px 0px rgba(0, 0, 0, 0.47);
+}
+/* main block - generic elements end */
+.painted-block {
+  width: min(100%, var(--max-width-screen));
+  padding-top: 110px;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+}

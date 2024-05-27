@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static  wagtailimages_tags%}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chart-slider.css' %}">
+
+{% endblock extra_css %}
+
+{% block content %}
+content
+
+{% endblock content %}

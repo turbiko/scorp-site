@@ -1,0 +1,136 @@
+{% load static wagtailcore_tags menus_tags wagtailsettings_tags i18n wagtailuserbar %}
+{% get_menu "topmenu" as navigation %}
+{% get_settings %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {% block title %}
+            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+            {% wagtail_site as current_site %}
+            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
+        {% if page.search_description %}
+        <meta name="description" content="{{ page.search_description }}" >
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+
+        {# Force all links in the live preview panel to be opened in a new tab #}
+        {% if request.in_preview_panel %}
+        <base target="_blank">
+        {% endif %}
+
+        {# Global stylesheets #}
+            <link rel="preconnect" href="https://fonts.gstatic.com" >
+    <link
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        {% block extra_css %}
+        {% endblock extra_css %}
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+{# -----------\/- HEADER -\/----------- #}
+<header>
+      <div class="content-wrapper margin-centered flex-row-between">
+        <div class="logo-header">
+          <img src="{% static 'img/logo.svg' %}" alt="" />
+        </div>
+        <nav>
+          <div>
+              {% get_current_language as current_language_code %}
+              {% if current_language_code == 'en' %}
+                  <span class="nav-active">
+                      {{ current_language_code|upper }}</span>
+              /
+                {% for translation in page.get_translations.live %}
+                  {% if translation.locale.language_code != current_language_code %}
+                    <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ translation.locale.language_code }}"
+                       class="nav-item nav-link {% if translation.locale.language_code == LANGUAGE_CODE %}active_nav{% endif %}">
+                        {{ translation.locale.language_code|upper }}
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                {% for translation in page.get_translations.live %}
+                  {% if translation.locale.language_code != current_language_code %}
+                    <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ translation.locale.language_code }}"
+                       class="nav-item nav-link {% if translation.locale.language_code == LANGUAGE_CODE %}active_nav{% endif %}">
+                        {{ translation.locale.language_code|upper }}
+                    </a>
+                  {% endif %}
+                {% endfor %}
+               /
+              <span class="nav-active">{{ current_language_code|upper }}</span>
+              {% endif %}
+            </div>
+
+            {% for item in navigation.menu_items.all %}
+            <a data-goto="{{item.goto_tag}}"
+                    href="{{ item.link }}"
+                    class="menu__link">
+                      {{ item.title }}
+                  </a>
+            {% endfor %}
+        </nav>
+      </div>
+    </header>
+{# -----------\/- MAIN CONTENT -\/----------- #}
+    {% block content %}    {% endblock content %}
+{# -----------\/- FOOTER -\/----------- #}
+<footer>
+      <div class="content-wrapper margin-centered">
+        <div class="footer">
+          <div class="footer-logo">
+            <img src="img/logo.svg" alt="" />
+          </div>
+          <div class="footer-data flex-row-between">
+            <div class="footer-copy">
+              &copy; 2023 Studio Animagrad <br />
+              info@animagrad.com | 22 Zakrevskogo str, 02222, Kyiv, Ukraine
+            </div>
+            <div class="footer-socials">
+              <div class="social-icon">
+                <img src="{% static 'img/imdb-social.svg' %}" alt="" />
+              </div>
+              <div class="social-icon">
+                <img src="{% static 'img/vimeo-social.svg' %}" alt="" />
+              </div>
+              <div class="social-icon">
+                <img src="{% static 'img/x-social.svg' %}" alt="" />
+              </div>
+              <div class="social-icon">
+                <img src="{% static 'img/in-social.svg' %}" alt="" />
+              </div>
+              <div class="social-icon">
+                <img src="{% static 'img/youtube-social.svg' %}" alt="" />
+              </div>
+              <div class="social-icon">
+                <img src="{% static 'img/instagram-social.svg' %}" alt="" />
+              </div>
+              <div class="social-icon">
+                <img src="{% static 'img/facebook-social.svg' %}" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+{# ------------ EXTRA CODE ------------ #}
+    {% block extra_js %}
+    {% endblock extra_js %}
+    </body>
+</html>
