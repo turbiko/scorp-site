@@ -1,0 +1,77 @@
+.contact-us {
+  display: grid;
+  place-items: center;
+}
+.contact-container {
+  width: 1010px;
+}
+.contacts-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-data-block {
+  width: 425px;
+  min-height: 265px;
+  padding-top: 20px;
+  flex-shrink: 0;
+  color: var(--White, #fff);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Unbounded;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 35px; /* 194.444% */
+}
+.contact-data-block h2 {
+  font-weight: 400;
+}
+.contacts-messengers {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+.contact-form-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.input-block {
+  width: 536px;
+  height: 80px;
+  flex-shrink: 0;
+}
+.input-block hr {
+  max-width: 500px;
+  height: 1px;
+  background: #fff;
+}
+.contact-input {
+  display: flex;
+  width: 530px;
+  height: 55px;
+  padding: 15px 18px;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  color: var(--White, #fff);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Unbounded;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 65px; /* 232.143% */
+}
+.messenger-icon {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+}
+
+.message-button {
+  width: 70%;
+}

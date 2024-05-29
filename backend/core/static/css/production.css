@@ -1,0 +1,18 @@
+.our-production {
+  padding: 80px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background-image: url("/images/production-painting.png");
+}
+.prod-list {
+  width: 60%;
+  color: var(--White, #fff);
+  font-family: CrazyV1;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 45px; /* 136.364% */
+  letter-spacing: 6.6px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,20 @@
+.preprod-page {
+}
+.our-preproduction {
+  padding: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/preproduction-painting.png");
+}
+.preprod-list {
+  width: 60%;
+  color: var(--White, #fff);
+  font-family: CrazyV1;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 45px; /* 136.364% */
+  letter-spacing: 6.6px;
+  text-transform: uppercase;
+}

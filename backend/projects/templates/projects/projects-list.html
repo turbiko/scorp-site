@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static  wagtailimages_tags i18n%}
+
+{% block body_class %}{% endblock %}
+
+{% block extra_css %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <main class="main-projects margin-centered">
+      <section class="section margin-centered">
+        <div class="block-for-title">
+          <div class="title-block margin-centered">
+            <span class="title-text">Projects</span>
+          </div>
+        </div>
+      </section>
+      <section class="projects-section section" id="projects-section">
+        <div class="slider_container">
+          <!-- swiper -->
+          <div class="projects-section__slider">
+            <div class="projects-section__container swiper-container">
+              <div class="swiper-wrapper">
+                <!-- slides there -->
+                <div
+                  class="swiper-slide"
+                  style="
+                    background-image: url('/images/carousel-1.png');
+                    background-size: cover;
+                    background-position: center;
+                  "
+                >
+                  <article class="project-card">
+                    <h3 class="project-card__title" lang="en">Horseshoe 1</h3>
+                    <div class="project-card__text">hgkjhgkjh 1</div>
+                  </article>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="
+                    background-image: url('/static/images/carousel-2.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <article class="project-card">
+                    <h3 class="project-card__title" lang="en">Horseshoe 2</h3>
+                    <div class="project-card__text">hgkjhgkjh 2</div>
+                  </article>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="
+                    background-image: url('/images/carousel-3.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <article class="project-card">
+                    <h3 class="project-card__title" lang="en">Horseshoe 3</h3>
+                    <div class="project-card__text">hgkjhgkjh 3</div>
+                  </article>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="
+                    background-image: url('/images/carousel-2.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <article class="project-card">
+                    <h3 class="project-card__title" lang="en">Horseshoe 4</h3>
+                    <div class="project-card__text">hgkjhgkjh 4</div>
+                  </article>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="
+                    background-image: url('/images/carousel-1.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <article class="project-card">
+                    <h3 class="project-card__title" lang="en">Horseshoe 5</h3>
+                    <div class="project-card__text">hgkjhgkjh 5</div>
+                  </article>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="
+                    background-image: url('/images/carousel-3.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <article class="project-card">
+                    <h3 class="project-card__title" lang="en">Horseshoe 6</h3>
+                    <div class="project-card__text">hgkjhgkjh 6</div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <!-- navigation -->
+            <div class="swiper-button-prev hero-arrow-box"><span>◁</span></div>
+            <div class="swiper-button-next hero-arrow-box"><span>▷</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+ <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper-container", {
+        loop: false, // Циклічний скролінг = true
+        slidesPerView: 2, // Кількість слайдів для показу
+        spaceBetween: 20, // Відстань між слайдами
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          // Правила для різних розмірів вікон
+          320: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 2,
+          },
+        },
+      });
+    </script>
+{% endblock content %}

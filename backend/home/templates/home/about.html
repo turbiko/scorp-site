@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load static  wagtailimages_tags i18n%}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}" />
+{% endblock extra_css %}
+
+{% block extra_style %}
+<style>
+.intro-block {
+  background: url("/static/images/intro-bg.png") lightgray 50% / cover no-repeat;
+}
+.block3 {
+  background: url("/static/images/image3-11.png") lightgray 50% / cover no-repeat;
+}
+.trusted-block {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    url("/static/images/trusted-by.png") lightgray 50% / cover no-repeat;
+}
+.our-services {
+  background-image: url("/static/images/services-painting.png");
+}
+</style>
+{% endblock extra_style %}
+
+{% block content %}
+    <main class="main-about margin-centered">
+      <section class="section margin-centered">
+        <div class="block-for-title">
+          <div class="title-block margin-centered">
+            <span class="title-text">About us</span>
+          </div>
+        </div>
+        <div class="about-text-content margin-centered">
+          <p>
+            Animagrad studio was founded in 2012 as a part of FILM.UA Group and
+            has become one of the leading animation studios in Eastern Europe.
+            Our portfolio lists a number of successful products in 2D and 3D.
+          </p>
+          <p>
+            Animagrad’s mission is about bringing Ukrainian animation into a new
+            age of excellence. Our professional team of highly trained experts
+            in 2D and 3D animation, creative department and skilled managers
+            successfully implements original projects and supplies highly
+            qualified services for accomplishing various tasks in animation
+            production.
+          </p>
+          <p>
+            We aspire towards the highest international standards of both
+            creative and technical work.
+          </p>
+          <p>
+            Currently Animagrad produces and develops several animated features
+            and series intended for the international market.
+          </p>
+        </div>
+      </section>
+      <section class="section margin-centered">
+        <div class="block-for-title">
+          <div class="title-block margin-centered">
+            <span class="title-text">News</span>
+          </div>
+        </div>
+        <div class="about-news-carousel margin-centered">
+          <div class="news-card-about">
+            <div class="news-image-box">
+              <img src="/static/images/carousel-1.png" alt="" />
+            </div>
+            <div class="news-about-title">
+              Мавка – культурна дипломатка. Як анімаційний хіт просуває
+              українські наративи в Європі
+            </div>
+            <div class="news-about-date">26 Март 2024</div>
+          </div>
+          <div class="news-card-about">
+            <div class="news-image-box">
+              <img src="/static/images/carousel-2.png" alt="" />
+            </div>
+            <div class="news-about-title">
+              Мавка – культурна дипломатка. Як анімаційний хіт просуває
+              українські наративи в Європі
+            </div>
+            <div class="news-about-date">26 Март 2024</div>
+          </div>
+          <div class="news-card-about">
+            <div class="news-image-box">
+              <img src="/static/images/carousel-3.png" alt="" />
+            </div>
+            <div class="news-about-title">
+              Мавка – культурна дипломатка. Як анімаційний хіт просуває
+              українські наративи в Європі
+            </div>
+            <div class="news-about-date">26 Март 2024</div>
+          </div>
+          <div class="news-card-about">
+            <div class="news-image-box">
+              <img src="/static/images/carousel-4.png" alt="" />
+            </div>
+            <div class="news-about-title">
+              Мавка – культурна дипломатка. Як анімаційний хіт просуває
+              українські наративи в Європі
+            </div>
+            <div class="news-about-date">26 Март 2024</div>
+          </div>
+        </div>
+        <div
+          class="all-news-button hero-button-shadow block-shadow hero-button margin-centered"
+        >
+          <span class="hero-button-title">All news</span>
+        </div>
+      </section>
+      <section class="painted-block our-team">
+        <div class="title-block margin-centered">
+          <span class="title-text">Our team</span>
+        </div>
+        <div class="team-slider-block">
+          <div class="fly-left">
+            <img src="/static/img/crow-left.png" alt="" />
+          </div>
+
+    <div class="swiper-container team-members">
+       <div class="swiper-wrapper">
+    {% for team in grouped_team_members %}
+      <div class="swiper-slide team-cards">
+      {% for member in team %}
+          <div class="stuff-card">
+            {% if member.our_team.big_picture %}
+            {% image member.our_team.big_picture original as img_stuff %}
+            <img src="{{ img_stuff.url }}" alt="Team Member {{ member.our_team.name }}" />
+            {% endif %}
+            <div class="stuff-info">
+                <p class="stuff-position">{{ member.our_team.position }}</p>
+                <p class="stuff-name">{{ member.our_team.name }}</p>
+                <p class="stuff-name">{{ member.our_team.last_name }}</p>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+    {% endfor %}
+       </div>
+
+    </div>
+
+          <div class="fly-right">
+            <img src="/static/img/crow-right.png" alt="" />
+          </div>
+        </div>
+        <div
+          class="all-news-button hero-button-shadow block-shadow hero-button margin-centered"
+        >
+          <span class="hero-button-title">Get in touch</span>
+        </div>
+      </section>
+    </main>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.swiper-container', {
+     slidesPerView: 4,
+    spaceBetween: 30,
+
+    navigation: {
+      nextEl: '.fly-right',
+      prevEl: '.fly-left',
+    },
+
+    },
+  });
+});
+</script>
+
+{% endblock content %}

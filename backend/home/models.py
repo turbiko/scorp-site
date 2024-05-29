@@ -11,19 +11,22 @@ from modelcluster.models import ClusterableModel
 from wagtail.contrib.settings.models import BaseSiteSetting
 from wagtail.contrib.settings.registry import register_setting
 from wagtail.models import Page, Orderable
+from wagtail.admin.panels import MultiFieldPanel,  TabbedInterface, ObjectList
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
 from wagtail.documents import get_document_model
+from wagtail.api import APIField
 
 from core.settings import base as core_base
 
-logger = logging.getLogger('lighttv')
+
+logger = logging.getLogger('mavka')
 
 
-class Contact(models.Model):
-    name = models.CharField(max_length=230, verbose_name='Ім’я')
-    email = models.EmailField(max_length=255, verbose_name='Електронна пошта')
-    message = models.TextField(verbose_name='Повідомлення')
+class Contact(models.Model):  # contact form
+    name = models.CharField(max_length=230, verbose_name=_('Name'))
+    email = models.EmailField(max_length=255, verbose_name=_('Email address'))
+    message = models.TextField(verbose_name=_('Message'))
 
     def __str__(self):
         return f"Contact {self.name}"
@@ -31,9 +34,9 @@ class Contact(models.Model):
 
 class SocialMediaLink(Orderable):
     site_setting = ParentalKey('SocialMediaSettings', related_name='social_media_links')
-    name = models.CharField(max_length=255, help_text='Назва соціальної мережі')
-    logotype = models.FileField(max_length=255, help_text='Завантажте логотип соціальної мережі')
-    url = models.URLField(help_text='URL посилання на соціальну мережу')
+    name = models.CharField(max_length=255, help_text=_('Social net name'))
+    logotype = models.FileField(max_length=255, help_text=_('Upload logotype'))
+    url = models.URLField(help_text=_('URL to social network account'))
 
     panels = [
         FieldPanel('name'),
@@ -56,7 +59,7 @@ class SocialMediaLink(Orderable):
             return ""
 
 
-class ContactData(Orderable):
+class ContactData(Orderable):  # for site contact block
     site_setting = ParentalKey('ContactDataSettings', related_name='contact_data')
     phone = models.CharField(max_length=200, blank=True, null=True)
     post_addr = models.CharField(max_length=200, blank=True, null=True)
@@ -66,31 +69,44 @@ class ContactData(Orderable):
 @register_setting
 class SocialMediaSettings(BaseSiteSetting, ClusterableModel):
     panels = [
-        InlinePanel('social_media_links', label="Соціальні мережі"),
+        InlinePanel('social_media_links', label="Social networks"),
     ]
+
     class Meta:
-        verbose_name = "Налаштування соціальних мереж"
+        verbose_name = _("Social site settings")
 
 
 @register_setting
-class ContactDataSettings(BaseSiteSetting, ClusterableModel):
+class ContactDataSettings(BaseSiteSetting, ClusterableModel):  # for site contact block
     panels = [
-        InlinePanel('contact_data', label="Контактні дані", max_num=1),
+        InlinePanel('contact_data', label=_("Contact data"), max_num=1),
     ]
 
     def get_contact_data(self):
-        return self.contact_data.first()  # Повертаємо перший запис
+        return self.contact_data.first()  # return only first element
 
     class Meta:
-        verbose_name = "Налаштування контактних даних"
+        verbose_name = _("Contact settings")
 
 
 class HomePage(Page):
-    about_name = models.CharField(_('Про нас назва блоку'), max_length=50, blank=True, null=True)
+    max_count_per_parent = 1
+    parent_page_types = ['wagtailcore.Page']
+    child_page_types = ['services.ServicesList']
+
+    big_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Intro top image')
+    )
+    about_name = models.CharField(_('Name for about block'), max_length=50, blank=True, null=True)
 
     content_panels = Page.content_panels + [
+        FieldPanel('big_picture'),
         FieldPanel('about_name'),
-
     ]
 
     def get_context(self, request):
@@ -98,3 +114,72 @@ class HomePage(Page):
         context = super().get_context(request)
 
         return context
+
+
+class OurTeam(models.Model):
+    position = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    big_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Intro top image')
+    )
+
+    def __str__(self):
+        return f"{self.name} {self.position}"
+
+
+class OurTeamCompany(Orderable):
+    our_team = models.ForeignKey(OurTeam, related_name='+', null=True, on_delete=models.SET_NULL)
+    page = ParentalKey('home.About', related_name='our_team')
+
+
+class About(Page):
+    template = 'home' + os.sep + 'about.html'
+    parent_page_types = ['home.HomePage']
+    max_count = 1
+    big_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Intro top image')
+    )
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('big_picture'),
+        ],
+            heading=_("About Options"),
+        ),
+        MultiFieldPanel(
+            [InlinePanel("our_team", label=_("Our team"))],
+            heading=_("Team members"),
+        ),
+    ]
+
+    def get_context(self, request):
+        context = super().get_context(request)
+        team_members = self.our_team.all()
+
+        grouped_teams = list(team_members)
+
+        context['grouped_team_members'] = [grouped_teams[i:i + 2] for i in range(0, len(grouped_teams), 2)]
+
+        return context
+
+class ContactPage(Page):
+    template = 'home' + os.sep + 'contactus.html'
+    parent_page_types = ['home.HomePage']
+    max_count = 1
+
+
+class Career(Page):
+    template = 'home' + os.sep + 'career.html'
+    parent_page_types = ['home.HomePage']
+    max_count = 1

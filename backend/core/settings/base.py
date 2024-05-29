@@ -11,9 +11,14 @@ from django.utils.translation import gettext_lazy as _
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-# DEBUG = False
+###
+# Production and debug modes. if check only debug for db selection, it switch and db
+# need debug sometimes and for production
+###
 DEBUG = config('DEBUG', default=False, cast=bool)
-print(f'base config: loaded DEBUG={DEBUG}')
+PROD_MODE = config('PROD_MODE', default=False, cast=bool)
+print(f'base config: set DEBUG = {DEBUG}')
+print(f'base config: set PROD_MODE = {PROD_MODE}')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY", "not-loaded-secret-key-ryu_zr&i&2ne6kXt9uib5oy8rca6ygb5tv!5hb#po-%%9hn2_43k")
@@ -49,6 +54,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # src
     "menus.apps.MenusConfig",
+    "services.apps.ServicesConfig",
+    "projects.apps.ProjectsConfig",
 ]
 
 MIDDLEWARE = [
@@ -88,7 +95,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-if DEBUG:
+if not PROD_MODE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",

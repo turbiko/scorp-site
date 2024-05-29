@@ -1,3 +1,5 @@
+
+from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.core.mail import send_mail
@@ -22,16 +24,15 @@ def submit_contact_form(request):
                 message=form.cleaned_data['message']
             )
 
-
-            # Додайте повідомлення або здійсніть перенаправлення
-            messages.success(request, 'Ваше повідомлення успішно збережено!')
+            # finish message creation
+            messages.success(request, _('Message saved!'))
             print(f'{message=}')
             return redirect('/')
         else:
             print('Form NOT valid, can`t send data')
-            messages.error(request, 'Виникла помилка при надсиланні повідомлення.')
+            messages.error(request, _('Error, form data not valid. Message not saved.'))
     else:
         print('Form new')
         form = ContactForm()
-    # Якщо щось пішло не так, перенаправте користувача назад на форму
+    # redirect user to home
     return redirect('/')

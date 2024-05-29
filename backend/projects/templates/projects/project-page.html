@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static  wagtailimages_tags i18n%}
+
+{% block body_class %}grid-page services-page{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    <link rel="stylesheet" href="{% static 'css/project.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+ <style>
+   .painting-image {
+  background-image: url("{% static 'images/services-painting.png' %}");
+}
+ </style>
+{% endblock extra_css %}
+
+{% block content %}
+<main class="margin-centered">
+      <section class="section margin-centered">
+        <div class="block-for-title">
+          <div class="title-block margin-centered">
+            <span class="title-text">{{ self.title }}</span>
+          </div>
+        </div>
+      </section>
+      <section class="painted-block painting-image our-services">
+
+      </section>
+    </main>
+
+{% endblock content %}

@@ -29,13 +29,21 @@ body {
   /* background: var(--Gray-BG, #383637); */
   background: #252525;
 }
-main {
-  width: min(100%, var(--max-width-screen));
-}
 .grid-page {
   display: grid;
   grid-template-rows: 90px auto 203px;
   min-height: 100svh;
+}
+main {
+  width: min(100%, var(--max-width-screen));
+}
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 .margin-centered {
   margin-inline: auto;
@@ -61,7 +69,6 @@ header {
   height: 75px;
   flex-shrink: 0;
   align-self: center;
-  padding-inline: 10px;
 }
 nav {
   display: inline-flex;
@@ -124,7 +131,12 @@ nav {
 }
 /* Footer end */
 /* main block - generic elements */
+
+/* Title */
 .block-for-title {
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 .title-block {
   width: fit-content;
@@ -151,7 +163,7 @@ nav {
   text-transform: uppercase;
 }
 
-/* Button all site func*/
+/* Button */
 .hero-button {
   display: flex;
   justify-content: center;
@@ -159,10 +171,20 @@ nav {
   gap: 20px;
   flex-shrink: 0;
   padding-inline: 20px;
+  color: var(--White, #fff);
+}
+.hero-button:hover {
+  border: 1px solid var(--Gray-BG, #383637);
+  background: var(--Gray-Button-2, #212121);
+}
+.hero-button:onclick {
+  background: var(--Black, #000);
+}
+.hero-button:active {
+  background: var(--Black, #000);
 }
 .hero-button-title {
   flex: 1 0 0;
-  color: var(--White, #fff);
   text-align: center;
   font-family: CrazyV1;
   font-size: 18px;
@@ -171,6 +193,12 @@ nav {
   letter-spacing: 2.16px;
   text-transform: uppercase;
 }
+.block-shadow {
+  box-shadow: 25px 71px 20px 0px rgba(0, 0, 0, 0.01),
+    25px 45px 18px 0px rgba(0, 0, 0, 0.07),
+    25px 25px 15px 0px rgba(0, 0, 0, 0.24),
+    10px 11px 11px 0px rgba(0, 0, 0, 0.41), 3px 3px 6px 0px rgba(0, 0, 0, 0.47);
+}
 .hero-button-shadow {
   border: 1px solid #ccc;
   background: var(--Gray-Button-1, #2b2b2b);
@@ -178,10 +206,16 @@ nav {
     0px 45px 18px 0px rgba(0, 0, 0, 0.07), 0px 25px 15px 0px rgba(0, 0, 0, 0.24),
     0px 11px 11px 0px rgba(0, 0, 0, 0.41), 0px 3px 6px 0px rgba(0, 0, 0, 0.47);
 }
+.hero-button-shadow:hover,
+.hero-button-shadow:onclick,
+.hero-button-shadow:active {
+  box-shadow: none;
+}
 /* main block - generic elements end */
 .painted-block {
   width: min(100%, var(--max-width-screen));
-  padding-top: 110px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   background-repeat: no-repeat;
