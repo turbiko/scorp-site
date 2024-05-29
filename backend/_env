@@ -1,7 +1,7 @@
 # example .env file
 DEBUG=True
 # prod mode use pgsql but if false - use sqlite
-PROD_MODE = False
+PROD_MODE=False
 SECRET_KEY=a_secret-string-many-chars-long-think-about-security
 ALLOWED_HOSTS=localhost, 127.0.0.1
 WAGTAILADMIN_BASE_URL=http://domain.tld
@@ -10,16 +10,16 @@ SQL_ENGINE=django.db.backends.postgresql_psycopg2
 SQL_DATABASE=demo_wagtail
 SQL_USER=demouser
 SQL_PASSWORD=DemoPass
-SQL_HOST=db
+SQL_HOST=scorpdb
 SQL_PORT=5432
 DATABASE=postgres
 
 EMAIL_HOST=mail.domain.tld
 EMAIL_PORT=465
 EMAIL_USE_SSL=True
-EMAIL_HOST_USER=noreply@domain.tld
+EMAIL_HOST_USER=username@domain.tld
 EMAIL_HOST_PASSWORD=email-password_string_wo_quotes
-EMAIL_SUBJECT_PREFIX=A-site
+EMAIL_SUBJECT_PREFIX=scorp
 
 LOGIN_URL=/login/
 LOGIN_REDIRECT_URL=/

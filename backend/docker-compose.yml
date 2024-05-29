@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  svitlotv:
+  scorp:
     build: .
     container_name: backendsvitlotv
     command: sh entrypoint.prod.sh
@@ -14,9 +14,9 @@ services:
     env_file:
       - .env
     depends_on:
-      - svitlodbd
+      - scorpdbd
 
-  svitlodbd:
+  scorpdbd:
     image: postgres
     restart: always
     ports:
@@ -28,7 +28,7 @@ services:
     env_file:
       - .env.db
 
-  nginxsvitlotv:
+  nginxscorp:
     image: library/nginx:latest
     ports:  # host-port 8111 (:) container-port 80
       - "8111:80"
