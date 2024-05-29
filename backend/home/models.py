@@ -89,6 +89,20 @@ class ContactDataSettings(BaseSiteSetting, ClusterableModel):  # for site contac
         verbose_name = _("Contact settings")
 
 
+class PartnersLogotypes(Orderable):
+    page = ParentalKey('wagtailcore.Page', related_name='partner_logo')
+    name = models.CharField(max_length=150, blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
+    logotype = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Partner name, URL and logotype')
+    )
+
+
 class HomePage(Page):
     max_count_per_parent = 1
     parent_page_types = ['wagtailcore.Page']
@@ -103,10 +117,52 @@ class HomePage(Page):
         help_text=_('Intro top image')
     )
     about_name = models.CharField(_('Name for about block'), max_length=50, blank=True, null=True)
+    about_text = RichTextField(_('About'))
+    about_background = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Intro top image')
+    )
+    block3_background = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('empty block background')
+    )
+    projects_title = models.CharField(_('Name for projects block'), max_length=50, blank=True, null=True)
+    partners_title = models.CharField(_('Name for partners block'), max_length=50, blank=True, null=True)
+    partners_background = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Partnets block background')
+    )
+    services_background = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('our services block background')
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel('big_picture'),
         FieldPanel('about_name'),
+        FieldPanel('about_background'),
+        FieldPanel('block3_background'),
+        FieldPanel('projects_title'),
+        FieldPanel('partners_title'),
+        FieldPanel('partners_background'),
+        InlinePanel('partner_logo', label=_("Partners logotypes")),
+        FieldPanel('services_background'),
     ]
 
     def get_context(self, request):
@@ -181,5 +237,10 @@ class ContactPage(Page):
 
 class Career(Page):
     template = 'home' + os.sep + 'career.html'
+    parent_page_types = ['home.HomePage']
+    max_count = 1
+
+class Services(Page):
+    template = 'home' + os.sep + 'services.html'
     parent_page_types = ['home.HomePage']
     max_count = 1

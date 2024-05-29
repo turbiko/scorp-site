@@ -14,8 +14,9 @@
   --max-width-screen: 1920px;
   --max-width-content: 1550px;
   --min-width-desktop: 768px;
-
+  --body-background: #383636;
   --Gray-BG: #383637;
+  --Text-color: #000;
   --White: #fff;
   --Gray-Button-1: #2b2b2b;
   --05-bleach: #ffffff;
@@ -26,8 +27,7 @@ body {
   width: 100%;
   min-width: var(--min-width-desktop);
   color: var(--White, #fff);
-  /* background: var(--Gray-BG, #383637); */
-  background: #252525;
+  background: var(--body-background, #383636);
 }
 .grid-page {
   display: grid;

@@ -20,21 +20,29 @@
 {% block extra_style %}
 <style>
 .intro-block {
-  background: url("/static/images/intro-bg.png") lightgray 50% / cover no-repeat;
+  {% image self.big_picture original as intro_bg %}
+  background: url("{{ intro_bg.url }}") lightgray 50% / cover no-repeat;
 }
+.about-container {
+  {% image self.about_background original as about_background %}
+        background: url("{{ about_background.url }}") lightgray 50% / cover no-repeat;
+      }
 .block3 {
-  background: url("/static/images/image3-11.png") lightgray 50% / cover no-repeat;
+  {% image self.block3_background original as block3_background %}
+  background: url("{{ block3_background.url }}") lightgray 50% / cover no-repeat;
 }
 .trusted-block {
+  {% image self.partners_background original as partners_background %}
     background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    url("/static/images/trusted-by.png") lightgray 50% / cover no-repeat;
+    url("{{ partners_background.url }}") lightgray 50% / cover no-repeat;
 }
 .our-services {
-  background-image: url("/static/images/services-painting.png");
+  {% image self.services_background original as services_background %}
+  background-image: url("{{ services_background.url }}");
 }
 </style>
 {% endblock extra_style %}
@@ -49,14 +57,16 @@
       </div>
     </div>
 </section>
-
-
+<section class="before-about"></section>
+<section class="title-about">
+  <div class="block-for-title">
+    <div class="title-block margin-centered">
+      <span class="title-text">{{page.about_name}}</span>
+    </div>
+  </div>
+</section>
+  <div class="about-container">
       <section class="about-block margin-centered">
-        <div class="block-for-title">
-          <div class="title-block margin-centered">
-            <span class="title-text">About us</span>
-          </div>
-        </div>
         <div class="about-text-content margin-centered">
           <p>
             Animagrad is a full-cycle animation studio and the largest in
@@ -72,7 +82,7 @@
       </section>
 
       <section class="block3 block-shadow"></section>
-
+</div>
       <section class="button-section">
         <div
           class="hero-button-shadow block-shadow hero-button margin-centered hero-button-home-git"
@@ -175,72 +185,13 @@
       <section>
         <section class="trusted-block block-shadow">
           <div class="partners-block">
+            {% for partner_logo in self.partner_logo.all %}
+            {% image partner_logo.logotype original as logotype %}
             <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
+              <img src="{{ logotype.url }}" alt="{{partner_logo.name}}" />
             </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
-            <div class="partner">
-              <img src="/static/images/nova-posta.svg" alt="" />
-            </div>
+            {% endfor %}
+
           </div>
         </section>
       </section>
@@ -303,7 +254,7 @@
       <section class="painted-block contact-us">
         <div class="contact-container flex-row-between">
           <div class="contacts-wrapper">
-            <div class="contact-data-block">
+            <address class="contact-data-block">
               <h2>Animagrad Animation Studio</h2>
               <p>22 Zakrevskogo str,</p>
               <p>02222, Kyiv,Ukraine</p>
@@ -312,7 +263,7 @@
               <p>&nbsp;</p>
               <p>For requests:</p>
               <a href="mailto:newbiz@animagrad.com">newbiz@animagrad.com</a>
-            </div>
+            </address>
             <div class="contacts-messengers">
               <div class="messenger-icon">
                 <svg
@@ -349,25 +300,28 @@
             </div>
           </div>
           <div class="contact-form-block">
-            <div class="conact-form-input-block">
+            <form  method="post" action="{% url 'home:submit_contact_form' %}">
+            {% csrf_token %}
+            <div class="contact-form-input-block">
               <div class="input-block">
-                <div class="contact-input">Your Name</div>
+                <div class="contact-input">{{ form.name }}</div>
                 <hr />
               </div>
               <div class="input-block">
-                <div class="contact-input">Email</div>
+                <div class="contact-input">{{ form.email }}</div>
                 <hr />
               </div>
               <div class="input-block">
-                <div class="contact-input">Message</div>
+                <div class="contact-input">{{ form.message }}</div>
                 <hr />
               </div>
             </div>
-            <div
+            <button type="submit"
               class="hero-button-shadow block-shadow hero-button message-button"
             >
               <span class="hero-button-title">Send message</span>
-            </div>
+            </button>
+            </form>
           </div>
         </div>
       </section>
