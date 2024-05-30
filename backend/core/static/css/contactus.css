@@ -68,6 +68,7 @@
   line-height: 65px; /* 232.143% */
   border: none;
   overflow: hidden;
+  resize:none;
 }
 .messenger-icon {
   width: 35px;

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static  wagtailimages_tags i18n%}
-
+{% get_current_language as LANGUAGE_CODE %}
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
@@ -75,7 +75,7 @@
             </div>
           </div>
             {% if messages %}
-        <ul class="messages">
+        <ul class="messages" lang="{{ LANGUAGE_CODE }}">
             {% for message in messages %}
             <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
             </li>
@@ -86,22 +86,18 @@
             <form  method="post" action="{% url 'home:submit_contact_form' %}">
             {% csrf_token %}
             <div class="contact-form-input-block">
-
               <div class="input-block">
-                <div class="contact-input">Your Name</div>
+                <div class="contact-input">{{ form.name }}</div>
                 <hr />
               </div>
-
               <div class="input-block">
-                <div class="contact-input">Email</div>
+                <div class="contact-input">{{ form.email }}</div>
                 <hr />
               </div>
-
               <div class="input-block">
-                <div class="contact-input">Message</div>
+                <div class="contact-input">{{ form.message }}</div>
                 <hr />
               </div>
-
             </div>
             <button type="submit"
               class="hero-button-shadow block-shadow hero-button message-button"
