@@ -240,7 +240,3 @@ class Career(Page):
     parent_page_types = ['home.HomePage']
     max_count = 1
 
-class Services(Page):
-    template = 'home' + os.sep + 'services.html'
-    parent_page_types = ['home.HomePage']
-    max_count = 1
