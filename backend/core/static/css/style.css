@@ -31,7 +31,7 @@ body {
 }
 .grid-page {
   display: grid;
-  grid-template-rows: 90px auto 203px;
+  grid-template-rows: 90px 1fr 203px;
   min-height: 100svh;
 }
 main {

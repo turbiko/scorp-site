@@ -1,6 +1,14 @@
-   .painting-image {
-
+.painting-image {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+main .services {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+.painted-block {
+   width: 100%;
+   height: 100%;
+   min-height: 600px
+}

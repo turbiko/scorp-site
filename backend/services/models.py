@@ -11,9 +11,123 @@ from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 logger = logging.getLogger('mavka')
 
 
-class ServiceType(Page):
-    template = 'services' + os.sep + 'service-type.html'
+class Service(Page):
+    template = 'services' + os.sep + 'service.html'
+    parent_page_types = [
+        'services.ServiceProduction',
+        'services.ServicePreProduction',
+        'services.ServicePostProduction',
+        'services.ServiceArtStoryProduction',
+    ]
+    # child_page_types = ['services.Service']
+
+
+class ServiceProduction(Page):
+    template = 'services' + os.sep + 'service-production.html'
     parent_page_types = ['services.ServicesList']
+    child_page_types = ['services.Service']
+
+    service_painting = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    icon = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    content_panels = Page.content_panels + [
+        FieldPanel('service_painting'),
+        FieldPanel('icon'),
+    ]
+
+
+class ServicePreProduction(Page):
+    template = 'services' + os.sep + 'service-preproduction.html'
+    parent_page_types = ['services.ServicesList']
+    child_page_types = ['services.Service']
+
+    service_painting = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    icon = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    content_panels = Page.content_panels + [
+        FieldPanel('service_painting'),
+        FieldPanel('icon'),
+    ]
+
+
+class ServicePostProduction(Page):
+    template = 'services' + os.sep + 'service-postproduction.html'
+    parent_page_types = ['services.ServicesList']
+    child_page_types = ['services.Service']
+
+    service_painting = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    icon = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    content_panels = Page.content_panels + [
+        FieldPanel('service_painting'),
+        FieldPanel('icon'),
+    ]
+
+
+class ServiceArtStoryProduction(Page):
+    template = 'services' + os.sep + 'service-artstoryproduction.html'
+    parent_page_types = ['services.ServicesList']
+    child_page_types = ['services.Service']
+
+    service_painting = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    icon = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('service icon')
+    )
+    content_panels = Page.content_panels + [
+        FieldPanel('service_painting'),
+        FieldPanel('icon'),
+    ]
 
 
 class ServicesList(Page):
