@@ -9,17 +9,15 @@ logger.info("Loaded PRODUCTION settings.")
 print(f"Loaded PRODUCTION settings {DEBUG=}")
 
 ALLOWED_HOSTS = [
-    "selected12309.svitlo.tv",
-    "svitlo.tv",
-    "beta.svitlo.tv",
-    "10.1.100.174",
+    "scorp.dev.argentum.ua",
+    "10.1.100.173",
     "127.0.0.1",
     "localhost",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.svitlo.tv',
-    'http://10.1.100.174',
+    'https://*.dev.argentum.ua',
+    'http://10.1.100.173',
 ]
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
