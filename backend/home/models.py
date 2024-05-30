@@ -156,6 +156,7 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('big_picture'),
         FieldPanel('about_name'),
+        FieldPanel('about_text'),
         FieldPanel('about_background'),
         FieldPanel('block3_background'),
         FieldPanel('projects_title'),
