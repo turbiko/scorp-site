@@ -3,7 +3,7 @@ version: '3.7'
 services:
   scorp:
     build: .
-    container_name: backendsvitlotv
+    container_name: backendscorp
     command: sh entrypoint.prod.sh
     volumes:
       - .:/usr/src/app/
