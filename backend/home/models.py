@@ -152,6 +152,7 @@ class HomePage(Page):
         related_name='+',
         help_text=_('our services block background')
     )
+    contactus_title = models.CharField(_('Name for contact us block'), max_length=50, blank=True, null=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('big_picture'),
@@ -164,6 +165,7 @@ class HomePage(Page):
         FieldPanel('partners_background'),
         InlinePanel('partner_logo', label=_("Partners logotypes")),
         FieldPanel('services_background'),
+        FieldPanel('contactus_title'),
     ]
 
     def get_context(self, request):
