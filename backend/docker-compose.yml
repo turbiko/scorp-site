@@ -30,7 +30,7 @@ services:
 
   nginxscorp:
     image: library/nginx:latest
-    ports:  # host-port 8111 (:) container-port 80
+    ports:  # host-port 8011 (:) container-port 80
       - "8011:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
