@@ -13,6 +13,7 @@
 :root {
   --max-width-screen: 1920px;
   --max-width-content: 1550px;
+  --max-width-content: 1550px;
   --min-width-desktop: 768px;
   --body-background: #383636;
   --Gray-BG: #383637;
@@ -27,7 +28,8 @@ body {
   width: 100%;
   min-width: var(--min-width-desktop);
   color: var(--White, #fff);
-  background: var(--body-background, #383636);
+  /* background: var(--Gray-BG, #383637); */
+  background: var(--body-background, #595959);
 }
 .grid-page {
   display: flex;
@@ -40,6 +42,8 @@ main {
   padding-top: 50px;
   padding-bottom: 50px;
   width: 100%;
+  overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -171,16 +175,25 @@ nav {
   flex-shrink: 0;
   padding-inline: 20px;
   color: var(--White, #fff);
+  background: var(--Gray-Button-1, #2b2b2b);
+  border: 1px solid #ccc;
+  box-shadow: 25px 71px 20px 0px rgba(0, 0, 0, 0.01),
+    25px 45px 18px 0px rgba(0, 0, 0, 0.07),
+    25px 25px 15px 0px rgba(0, 0, 0, 0.24),
+    10px 11px 11px 0px rgba(0, 0, 0, 0.41), 3px 3px 6px 0px rgba(0, 0, 0, 0.47);
 }
 .hero-button:hover {
   border: 1px solid var(--Gray-BG, #383637);
   background: var(--Gray-Button-2, #212121);
+  box-shadow: none;
 }
 .hero-button:onclick {
   background: var(--Black, #000);
+  box-shadow: none;
 }
 .hero-button:active {
   background: var(--Black, #000);
+  box-shadow: none;
 }
 .hero-button-title {
   flex: 1 0 0;

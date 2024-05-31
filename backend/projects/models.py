@@ -3,10 +3,10 @@ import logging
 from datetime import datetime
 
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import activate, gettext_lazy as _, get_language
 from wagtail.fields import RichTextField
 
-from wagtail.models import Page, Orderable
+from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 
 logger = logging.getLogger('mavka')
@@ -47,8 +47,8 @@ class Project(Page):
     content_panels = Page.content_panels + [
         FieldPanel('category'),
         FieldPanel('genre'),
-        FieldPanel('audience'),
         FieldPanel('running_time'),
+        FieldPanel('audience'),
         FieldPanel('format'),
         FieldPanel('technique'),
         FieldPanel('sound'),
@@ -72,7 +72,7 @@ class Projects(Page):
         context = super().get_context(request)
         # Get projects accessible for user
         # all_projects = self.accessible(request=request)
-        projects = Project.objects.live()
+        projects = Project.objects.live().filter(locale=Locale.get_active())
         logger.debug(f'Projects (get_context) for {request.user} {projects.count()=}')
 
         context['projects'] = projects
