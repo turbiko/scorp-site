@@ -1,13 +1,16 @@
 {% extends "base.html" %}
-{% load static  wagtailimages_tags i18n%}
+{% load static  wagtailimages_tags wagtailcore_tags i18n%}
 
 {% block body_class %}grid-page services-page{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+<link
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="{% static 'css/project.css' %}">
 
-    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/projects-slider.css' %}">
  <style>
    .painting-image {
   background-image: url("{% static 'images/services-painting.png' %}");
@@ -17,16 +20,166 @@
 
 {% block content %}
 <main class="margin-centered">
-      <section class="section margin-centered">
-        <div class="block-for-title">
-          <div class="title-block margin-centered">
-            <span class="title-text">{{ self.title }}</span>
+      <section class="painting-image project-painting block-shadow"></section>
+      <section class="project-main-content margin-centered block-shadow">
+        <div class="page-project-title"><h1>Мавка. Лісова пісня</h1></div>
+        <div class="project-specifications">
+          <div>
+            <h3>Category:</h3>
+            <p>Series</p>
+          </div>
+          <div>
+            <h3>Genre:</h3>
+            <p>Adventures, Edutainment</p>
+          </div>
+          <div>
+            <h3>Running time:</h3>
+            <p>26 x 6 min</p>
+          </div>
+          <div>
+            <h3>Audience:</h3>
+            <p>For Ages 6-12</p>
+          </div>
+          <div>
+            <h3>Format:</h3>
+            <p>Animated Series</p>
+          </div>
+          <div>
+            <h3>Technique:</h3>
+            <p>2D/3D Animation</p>
+          </div>
+          <div>
+            <h3>Sound:</h3>
+            <p>Stereo</p>
+          </div>
+          <div>
+            <h3>Language:</h3>
+            <p>English, Ukrainian</p>
+          </div>
+          <div>
+            <h3>Producers:</h3>
+            <p>Anna Eliseeva</p>
+          </div>
+          <div>
+            <h3>Director:</h3>
+            <p>Egor Olesov</p>
+          </div>
+          <div>
+            <h3>Screenplay:</h3>
+            <p>Anton Bazelinskii</p>
+          </div>
+        </div>
+        <div class="project-text">
+          <div class="project-annonce-text">
+            Повнометражний мультфільм «Мавка. Лісова пісня» вже став не лише
+            українським, а й міжнародним хітом, справжнім феноменом серед
+            вітчизняних релізів, який наразі вийшов у прокат понад 80 країн
+            світу.
+          </div>
+          <div class="project-main-text">
+            <p>
+              Повнометражний мультфільм «Мавка. Лісова пісня» вже став не лише
+              українським, а й міжнародним хітом, справжнім феноменом серед
+              вітчизняних релізів, який наразі вийшов у прокат понад 80 країн
+              світу.
+            </p>
+            <p>
+              Підбивати підсумки ще зарано, втім, перші цифри та перші іноземні
+              рецензії на «Мавку» вже наочно демонструють два очевидні тренди.
+              Перший – про який свідчать цифри бокс-офісу: іноземні глядачі
+              сприймають українську анімацію дуже позитивно
+            </p>
+            <p>
+              Наприклад, «Мавка» стала фільмом №1 у стартовий вікенд прокату в
+              Хорватії. У Польщі, де прокат стартував 4 серпня, «Мавка. Лісова
+              пісня» зібрала вже 8 758 767 злотих (майже 1 млн 836 тис. євро), з
+              яких 1 926 365 злотих (майже 404 тис. євро) припали на
+              україномовну версію. У Португалії за результатами першого вікенду
+              стрічка була бронзовим призером бокс-офісу, пропустивши вперед
+              лише «Вартових галактики – 3» та «Братів Супер Маріо в кіно». Ба
+              більше: за бокс-офісом у Португалії «Мавка» наразі є найуспішнішою
+              незалежною анімаційною премʼєрою року та другою (після вже
+              згаданих «Братів Супер Маріо») анімаційною премʼєрою загалом.
+            </p>
+            <p>
+              Повнометражний мультфільм «Мавка. Лісова пісня» вже став не лише
+              українським, а й міжнародним хітом, справжнім феноменом серед
+              вітчизняних релізів, який наразі вийшов у прокат понад 80 країн
+              світу.   Підбивати підсумки ще зарано, втім, перші цифри та перші
+              іноземні рецензії на «Мавку» вже наочно демонструють два очевидні
+              тренди. Перший – про який свідчать цифри бокс-офісу: іноземні
+              глядачі сприймають українську анімацію дуже позитивно. Наприклад,
+              «Мавка» стала фільмом №1 у стартовий вікенд прокату в Хорватії. У
+              Польщі, де прокат стартував 4 серпня, «Мавка. Лісова пісня»
+              зібрала вже 8 758 767 злотих (майже 1 млн 836 тис. євро), з яких 1
+              926 365 злотих (майже 404 тис. євро) припали на україномовну
+              версію. У Португалії за результатами першого вікенду стрічка була
+              бронзовим призером бокс-офісу, пропустивши вперед лише «Вартових
+              галактики – 3» та «Братів Супер Маріо в кіно». Ба більше: за
+              бокс-офісом у Португалії «Мавка» наразі є найуспішнішою незалежною
+              анімаційною премʼєрою року та другою (після вже згаданих «Братів
+              Супер Маріо») анімаційною премʼєрою загалом.
+            </p>
           </div>
         </div>
       </section>
-      <section class="painted-block painting-image our-services">
 
-      </section>
+      <section class="projects-section section">
+        <div class="slider_container">
+          <!-- swiper -->
+          <div class="container-section__slider">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <!-- slides there -->
+                {% for slider_item in projects.all %}
+
+                {% image slider_item.slider_image original as slider_img %}
+                <div
+                  class="swiper-slide"
+                  style="background-image: url('{{slider_img.url}}')"
+                >
+                  <article class="news-card">
+                    <a href="{% pageurl slider_item %}">
+                      <h3 class="news-card__title" lang="en">{{slider_item.title}}</h3>
+                    </a>
+                    <div class="news-card__text">{{slider_item.format}}</div>
+                  </article>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+            <!-- navigation -->
+            <div class="swiper-button-prev hero-arrow-box"><span>◁</span></div>
+            <div class="swiper-button-next hero-arrow-box"><span>▷</span></div>
+          </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script>
+          const swiper = new Swiper(".swiper-container", {
+            loop: false, // Циклічний скролінг = true
+            slidesPerView: 2, // Кількість слайдів для показу
+            spaceBetween: 20, // Відстань між слайдами
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+              // Правила для різних розмірів вікон
+              320: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 2,
+              },
+            },
+          });
+        </script>
     </main>
 
 {% endblock content %}
