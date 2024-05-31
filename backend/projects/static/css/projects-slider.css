@@ -120,3 +120,60 @@
 .swiper-rtl .swiper-button-prev:after {
   content: "";
 }
+
+.projects-card {
+  width: auto;
+  flex-shrink: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+
+  padding: 24px;
+
+  border: 1px color(--main-color1);
+  overflow: hidden;
+}
+.projects-card__title {
+  display: flex;
+  width: 650px;
+  height: 41px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--05-bleach, var(--White, #fff));
+  text-align: center;
+  font-family: CrazyV1;
+  font-size: 53px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px; /* 94.34% */
+  letter-spacing: 9.54px;
+  text-transform: uppercase;
+}
+.projects-card__text {
+  color: var(--05-bleach, var(--White, #fff));
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-feature-settings: "salt" on;
+  font-family: "Kyiv*Type Serif";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 66.667px; /* 256.41% */
+  letter-spacing: -0.52px;
+}
+.swiper-slide-active {
+  box-shadow: 16px 150px 70px 0px rgba(0, 0, 0, 0.02),
+    10px 100px 64px 0px rgba(0, 0, 0, 0.14),
+    6px 70px 54px 0px rgba(0, 0, 0, 0.46), 3px 40px 40px 0px rgba(0, 0, 0, 0.79),
+    1px 10px 22px 0px rgba(0, 0, 0, 0.91);
+}
