@@ -30,9 +30,8 @@ body {
   background: var(--body-background, #383636);
 }
 .grid-page {
-  display: grid;
-  grid-template-rows: 90px 1fr 203px;
-  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
 }
 main {
   width: min(100%, var(--max-width-screen));
