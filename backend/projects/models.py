@@ -62,12 +62,25 @@ class Project(Page):
         FieldPanel('slider_image'),
     ]
 
+    def __str__(self):
+        return self.title
+
+    def get_context(self, request):  # Project
+        context = super().get_context(request)
+        # context['projects'] for carousel
+        projects = Project.objects.live().filter(locale=Locale.get_active())
+        logger.debug(f'Projects (get_context) for {request.user} {projects.count()=}')
+
+        context['projects'] = projects
+        return context
+
 
 class Projects(Page):
     template = 'projects' + os.sep + 'projects-list.html'
     parent_page_types = ['home.HomePage']
     child_page_types = ['projects.Project']
     max_count = 1
+
     def get_context(self, request):  # Projects_List
         context = super().get_context(request)
         # Get projects accessible for user

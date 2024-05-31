@@ -1,5 +1,11 @@
-
 /* SLIDER */
+.slider_container {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 .container-section__slider {
   width: calc(100% - 150px);
   margin-inline: auto;
