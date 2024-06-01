@@ -10,7 +10,7 @@ from modelcluster.models import ClusterableModel
 
 from wagtail.contrib.settings.models import BaseSiteSetting
 from wagtail.contrib.settings.registry import register_setting
-from wagtail.models import Page, Orderable
+from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import MultiFieldPanel,  TabbedInterface, ObjectList
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
@@ -18,7 +18,7 @@ from wagtail.documents import get_document_model
 from wagtail.api import APIField
 
 from core.settings import base as core_base
-
+from projects.models import Project
 
 logger = logging.getLogger('mavka')
 
@@ -171,6 +171,10 @@ class HomePage(Page):
     def get_context(self, request):
         logger.info(f'Homepage (get_context) was accessed by {request.user} ')
         context = super().get_context(request)
+        projects = Project.objects.live().filter(locale=Locale.get_active())
+        logger.debug(f'Projects (get_context) for {request.user} {projects.count()=}')
+
+        context['projects'] = projects
 
         return context
 
