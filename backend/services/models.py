@@ -33,7 +33,7 @@ class ServiceProduction(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('service icon')
+        help_text=_('service picture')
     )
     icon = models.ForeignKey(
         'wagtailimages.Image',
@@ -60,7 +60,7 @@ class ServicePreProduction(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('service icon')
+        help_text=_('service picture')
     )
     icon = models.ForeignKey(
         'wagtailimages.Image',
@@ -87,7 +87,7 @@ class ServicePostProduction(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('service icon')
+        help_text=_('service picture')
     )
     icon = models.ForeignKey(
         'wagtailimages.Image',
@@ -114,7 +114,7 @@ class ServiceArtStoryProduction(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('service icon')
+        help_text=_('service picture')
     )
     icon = models.ForeignKey(
         'wagtailimages.Image',
