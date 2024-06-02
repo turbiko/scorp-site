@@ -73,6 +73,7 @@ header {
   flex-shrink: 0;
   align-self: center;
 }
+.menu-lang,
 nav {
   display: inline-flex;
   align-items: center;
