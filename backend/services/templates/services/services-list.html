@@ -29,12 +29,14 @@
           {% for service in all_services %}
           {% image service.specific.icon original as service_icon %}
           <div class="service-item">
-               <a href="{% pageurl result %}">
-                <div class="picture">
-                  <img src="{{service_icon.url}}" alt="" />
-                </div>
+               <a href="{% pageurl service %}">
+                   <div class="picture">
+                       <img src="{{service_icon.url}}" alt="" />
+                   </div>
                </a>
-            <div class="service-title">{{service.title}}</div>
+               <a href="{% pageurl service %}">
+                   <div class="service-title">{{service.title}}</div>
+               </a>
             <div>services: 10 </div>
           </div>
           {% endfor %}
