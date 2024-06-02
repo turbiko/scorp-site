@@ -49,10 +49,9 @@
       <div class="content-wrapper margin-centered flex-row-between">
         <a href="/{{ LANGUAGE_CODE }}">
             <div class="logo-header">
-          <img src="{% static 'img/logo.svg' %}" alt="" />
-        </div>
-            </a>
-        <nav>
+              <img src="{% static 'img/logo.svg' %}" alt="" />
+            </div>
+        </a>
           <div>
               {% get_current_language as current_language_code %}
               {% if current_language_code == 'en' %}
@@ -80,21 +79,23 @@
               <span class="nav-active">{{ current_language_code|upper }}</span>
               {% endif %}
             </div>
+        <nav>
 
             {% if LANGUAGE_CODE == 'en'%}
                 {% for item in navigation.menu_items.all %}
                 <a href="{{ item.link }}" data-goto="{{item.goto_tag}}"
                    class="menu__link {% if item.link == request.path %}active_nav{% endif %}">
-                    {{ item.title }}</a>
+                    {{ item.title }}
+                </a>
             {% endfor %}
-             {% else %}
+            {% else %}
                 {% for item in navigationuk.menu_items.all %}
                 <a href="{{ item.link }}" data-goto="{{item.goto_tag}}"
                    class="menu__link {% if item.link == request.path %}active_nav{% endif %}">
-                    {{ item.title }}</a>
+                    {{ item.title }}
+                </a>
             {% endfor %}
             {% endif %}
-
         </nav>
       </div>
     </header>
@@ -110,7 +111,9 @@
           <div class="footer-data flex-row-between">
             <div class="footer-copy">
               &copy; 2023 Studio Animagrad <br />
-              info@animagrad.com | {% translate "22 Zakrevskogo str, 02222, Kyiv" %}, {% translate "Ukraine" %}
+              info@animagrad.com |
+                {% translate "22 Zakrevskogo str, 02222, Kyiv" %},
+                {% translate "Ukraine" %}
             </div>
             <div class="footer-socials">
                  {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
