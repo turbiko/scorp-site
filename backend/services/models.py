@@ -5,7 +5,7 @@ from datetime import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.models import Page, Orderable
+from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 
 logger = logging.getLogger('mavka')
@@ -135,3 +135,19 @@ class ServicesList(Page):
     parent_page_types = ['home.HomePage']
     child_page_types = ['services.ServiceType']
     max_count_per_parent = 1
+
+    def get_context(self, request, *args, **kwargs):
+
+        logger.info(f'ServicesList (get_context) was accessed by {request.user} ')
+        context = super().get_context(request)
+        all_services = self.get_children().live().filter(locale=Locale.get_active())
+        logger.debug(f'Projects (get_context) for {request.user} {all_services.count()=}')
+
+        context['all_services'] = all_services
+        print(f"{all_services=}")
+        for service in all_services:
+            print(f"{service.title=}")
+            print(f"{service.specific.service_painting=}")
+            print(f"{service.specific.icon=}")
+
+        return context

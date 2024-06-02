@@ -1,10 +1,15 @@
 .services-page {
 }
 .our-services {
-  padding: 80px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+    box-shadow: 25px 71px 20px 0px rgba(0, 0, 0, 0.01),
+    25px 45px 18px 0px rgba(0, 0, 0, 0.07),
+    25px 25px 15px 0px rgba(0, 0, 0, 0.24),
+    10px 11px 11px 0px rgba(0, 0, 0, 0.41), 3px 3px 6px 0px rgba(0, 0, 0, 0.47);
+
 }
 .services-list {
   width: 1420px;
@@ -19,6 +24,24 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+.service-item .service-title {
+  display: flex;
+  width: 740px;
+  height: 50px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--Old-Paper, #fecc77);
+  text-align: center;
+  font-family: CrazyV1;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 75% */
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 .service-item .picture {
   height: 81px;

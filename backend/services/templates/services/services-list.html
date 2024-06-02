@@ -10,6 +10,7 @@
  <style>
    .painting-image {
   background-image: url("{% static 'images/services-painting.png'  %}");
+       background-size:     cover;
 }
  </style>
 {% endblock extra_css %}
@@ -25,34 +26,16 @@
       </section>
       <section class="painted-block  painting-image our-services">
         <div class="services-list">
+          {% for service in all_services %}
+          {% image service.specific.icon original as service_icon %}
           <div class="service-item">
             <div class="picture">
-              <img src="{% static '/images/service-art.svg' %}" alt="" />
+              <img src="{{service_icon.url}}" alt="" />
             </div>
-            <div>STORY & ART DEVELOPMENT</div>
-            <div>10 сервісів</div>
+            <div class="service-title">{{service.title}}</div>
+            <div>services: 10 </div>
           </div>
-          <div class="service-item">
-            <div class="picture">
-              <img src="{% static '/images/service-prod.svg' %}" alt="" />
-            </div>
-            <div>PRODUCTION</div>
-            <div>9 сервісів</div>
-          </div>
-          <div class="service-item">
-            <div class="picture">
-              <img src="{% static '/images/service-preprod.svg' %}" alt="" />
-            </div>
-            <div>PRE-PRODUCTION</div>
-            <div>11 сервісів</div>
-          </div>
-          <div class="service-item">
-            <div class="picture">
-              <img src="{% static '/images/service-postprod.svg' %}" alt="" />
-            </div>
-            <div>POST-PRODUCTION</div>
-            <div>15 сервісів</div>
-          </div>
+          {% endfor %}
         </div>
       </section>
     </main>
