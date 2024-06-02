@@ -68,12 +68,30 @@ header {
   align-content: center;
 }
 .logo-header {
-  width: 104px;
-  height: 75px;
-  flex-shrink: 0;
+  font-family: Unbounded;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.9px;
+  text-transform: uppercase;
   align-self: center;
 }
-.menu-lang,
+.menu-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.25rem, -3.036rem + 8.929vw, 5rem);
+  color: var(--White, #fff);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Unbounded;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.9px;
+  text-transform: uppercase;
+}
 nav {
   display: inline-flex;
   align-items: center;
