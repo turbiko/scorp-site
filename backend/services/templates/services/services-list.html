@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static  wagtailimages_tags i18n%}
+{% load static  wagtailimages_tags wagtailcore_tags i18n%}
 
 {% block body_class %}grid-page services-page{% endblock %}
 
@@ -29,9 +29,11 @@
           {% for service in all_services %}
           {% image service.specific.icon original as service_icon %}
           <div class="service-item">
-            <div class="picture">
-              <img src="{{service_icon.url}}" alt="" />
-            </div>
+               <a href="{% pageurl result %}">
+                <div class="picture">
+                  <img src="{{service_icon.url}}" alt="" />
+                </div>
+               </a>
             <div class="service-title">{{service.title}}</div>
             <div>services: 10 </div>
           </div>
