@@ -1,16 +1,6 @@
 .services-page {
 }
-.our-services {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    box-shadow: 25px 71px 20px 0px rgba(0, 0, 0, 0.01),
-    25px 45px 18px 0px rgba(0, 0, 0, 0.07),
-    25px 25px 15px 0px rgba(0, 0, 0, 0.24),
-    10px 11px 11px 0px rgba(0, 0, 0, 0.41), 3px 3px 6px 0px rgba(0, 0, 0, 0.47);
 
-}
 .services-list {
   width: 1420px;
   display: grid;

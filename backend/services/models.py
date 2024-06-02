@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
+from wagtail.fields import RichTextField
 
 logger = logging.getLogger('mavka')
 
@@ -27,6 +28,7 @@ class ServiceProduction(Page):
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
 
+    body = RichTextField(_('Body'), blank=True, null=True)
     service_painting = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -44,6 +46,7 @@ class ServiceProduction(Page):
         help_text=_('service icon')
     )
     content_panels = Page.content_panels + [
+        FieldPanel('body'),
         FieldPanel('service_painting'),
         FieldPanel('icon'),
     ]
@@ -54,6 +57,7 @@ class ServicePreProduction(Page):
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
 
+    body = RichTextField(_('Body'), blank=True, null=True)
     service_painting = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -71,6 +75,7 @@ class ServicePreProduction(Page):
         help_text=_('service icon')
     )
     content_panels = Page.content_panels + [
+        FieldPanel('body'),
         FieldPanel('service_painting'),
         FieldPanel('icon'),
     ]
@@ -81,6 +86,7 @@ class ServicePostProduction(Page):
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
 
+    body = RichTextField(_('Body'), blank=True, null=True)
     service_painting = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -98,6 +104,7 @@ class ServicePostProduction(Page):
         help_text=_('service icon')
     )
     content_panels = Page.content_panels + [
+        FieldPanel('body'),
         FieldPanel('service_painting'),
         FieldPanel('icon'),
     ]
@@ -108,6 +115,8 @@ class ServiceArtStoryProduction(Page):
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
 
+    body = RichTextField(_('Body'), blank=True, null=True)
+    body2 = RichTextField(_('Body 2'), blank=True, null=True)
     service_painting = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -125,6 +134,8 @@ class ServiceArtStoryProduction(Page):
         help_text=_('service icon')
     )
     content_panels = Page.content_panels + [
+        FieldPanel('body'),
+        FieldPanel('body2'),
         FieldPanel('service_painting'),
         FieldPanel('icon'),
     ]
