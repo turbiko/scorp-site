@@ -8,7 +8,8 @@
  <style>
 
    .painting-image {
-  background-image: url("{% static 'images/services-painting.png'  %}");
+   {% image page.specific.service_painting original as service_painting %}
+  background-image: url("{{service_painting.url}}");
 }
  </style>
 {% endblock extra_css %}
