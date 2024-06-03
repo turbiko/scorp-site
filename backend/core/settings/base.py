@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "menus.apps.MenusConfig",
     "services.apps.ServicesConfig",
     "projects.apps.ProjectsConfig",
+    "news.apps.NewsConfig",
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    'home.middleware.AdminRedirectMiddleware',
 ]
 
 ROOT_URLCONF = "core.urls"

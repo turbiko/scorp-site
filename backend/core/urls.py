@@ -12,11 +12,9 @@ from search import views as search_views
 urlpatterns = [
     path('home/', include('home.urls'), name='home'),
     path("django-admin/", admin.site.urls),
-    path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
 ]
-
 
 
 if settings.DEBUG:
@@ -31,6 +29,7 @@ if settings.DEBUG:
 # Translatable URLs
 # These will be available under a language code prefix. For example /en/search/
 urlpatterns += i18n_patterns(
+    path("admin/", include(wagtailadmin_urls)),
     path("search/", search_views.search, name="search"),
     # path('module/', include('module.urls')),
     path("", include(wagtail_urls)),
