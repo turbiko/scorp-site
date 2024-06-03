@@ -28,6 +28,7 @@
 .painting-image {
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 main .services {
   display: grid;

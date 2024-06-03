@@ -104,6 +104,9 @@ class PartnersLogotypes(Orderable):
     )
 
 
+
+
+
 class HomePage(Page):
     max_count_per_parent = 1
     parent_page_types = ['wagtailcore.Page']
@@ -173,11 +176,17 @@ class HomePage(Page):
         logger.info(f'Homepage (get_context) was accessed by {request.user} ')
         context = super().get_context(request)
         projects = Project.objects.live().filter(locale=Locale.get_active())
-        logger.debug(f'Home Projects (get_context) for {request.user} {projects.count()=} services {all_services.count()=}')
 
-        all_services = ServicesList.get_children().live().filter(locale=Locale.get_active())
-
-        context['all_services'] = all_services
+        try:
+            services_list_page = self.get_children().type(ServicesList).live().first()
+            if services_list_page:
+                # Get the child pages of the ServicesList page
+                services_list_children = services_list_page.get_children().live()
+                context['all_services'] = services_list_children
+            else:
+                context['all_services'] = []
+        except ServicesList.DoesNotExist:
+            context['services_list_children'] = []
 
         context['projects'] = projects
 

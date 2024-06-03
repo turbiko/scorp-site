@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/about.css' %}" />
     <link rel="stylesheet" href="{% static 'css/projects-slider.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+    <link rel="stylesheet" href="{% static 'css/serv-list.css' %}">
     <link rel="stylesheet" href="{% static 'css/contactus.css' %}" />
 {% endblock extra_css %}
 
@@ -42,6 +43,7 @@
 .our-services {
   {% image self.services_background original as services_background %}
   background-image: url("{{ services_background.url }}");
+    background-size: auto;
 }
 </style>
 {% endblock extra_style %}
