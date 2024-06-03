@@ -13,7 +13,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
-  margin-top: -25%;
+  margin-top: max(-600px,-50%);
 }
 .career-buttons-block  .hero-button {
   width: 350px;
