@@ -185,36 +185,22 @@
           </div>
         </div>
       </section>
-      <section class="painted-block block-shadow our-services">
+      <section class="painted-block  painting-image our-services all-services">
         <div class="services-list">
+          {% for service in all_services %}
+          {% image service.specific.icon original as service_icon %}
           <div class="service-item">
-            <div class="picture">
-              <img src="/static/images/service-art.svg" alt="" />
-            </div>
-            <div>STORY & ART DEVELOPMENT</div>
-            <div>10 сервісів</div>
+               <a href="{% pageurl service %}">
+                   <div class="picture">
+                       <img src="{{service_icon.url}}" alt="" />
+                   </div>
+               </a>
+               <a href="{% pageurl service %}">
+                   <div class="service-title">{{service.title}}</div>
+               </a>
+            <div>services: 10 </div>
           </div>
-          <div class="service-item">
-            <div class="picture">
-              <img src="/static/images/service-prod.svg" alt="" />
-            </div>
-            <div>PRODUCTION</div>
-            <div>9 сервісів</div>
-          </div>
-          <div class="service-item">
-            <div class="picture">
-              <img src="/static/images/service-preprod.svg" alt="" />
-            </div>
-            <div>PRE-PRODUCTION</div>
-            <div>11 сервісів</div>
-          </div>
-          <div class="service-item">
-            <div class="picture">
-              <img src="/static/images/service-postprod.svg" alt="" />
-            </div>
-            <div>POST-PRODUCTION</div>
-            <div>15 сервісів</div>
-          </div>
+          {% endfor %}
         </div>
       </section>
 
