@@ -247,13 +247,26 @@ class About(Page):
         grouped_teams = list(team_members)
 
         context['grouped_team_members'] = [grouped_teams[i:i + 2] for i in range(0, len(grouped_teams), 2)]
-
+        print("Team members context = ", context['grouped_team_members'])
         return context
+
 
 class ContactPage(Page):
     template = 'home' + os.sep + 'contactus.html'
     parent_page_types = ['home.HomePage']
     max_count = 1
+    big_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Intro top image')
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('big_picture'),
+    ]
 
 
 class Career(Page):

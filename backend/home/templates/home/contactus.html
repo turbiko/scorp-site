@@ -15,6 +15,12 @@
 {% endblock extra_css %}
 
 {% block extra_style %}
+<style>
+  .painting-image {
+  {% image self.big_picture original as big_picture %}
+  background: url("{{ big_picture.url }}") lightgray 50% / cover no-repeat;
+}
+</style>
 {% endblock extra_style %}
 
 {% block content %}
@@ -26,7 +32,7 @@
           </div>
         </div>
       </section>
-      <section class="painted-block painting-image contact-us">
+      <section class="painted-block painting-image contact-us block-shadow">
         <div class="contact-container flex-row-between">
           <div class="contacts-wrapper">
             <div class="contact-data-block">
