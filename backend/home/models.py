@@ -62,9 +62,12 @@ class SocialMediaLink(Orderable):
 
 class ContactData(Orderable):  # for site contact block
     site_setting = ParentalKey('ContactDataSettings', related_name='contact_data')
+    name = models.CharField(max_length=200, blank=True, null=True)
     phone = models.CharField(max_length=200, blank=True, null=True)
     post_addr = models.CharField(max_length=200, blank=True, null=True)
+    post_addr2 = models.CharField(max_length=200, blank=True, null=True)
     email = models.EmailField(max_length=50, blank=True, null=True)
+    email_requests = models.EmailField(max_length=50, blank=True, null=True)
 
 
 @register_setting
@@ -102,9 +105,6 @@ class PartnersLogotypes(Orderable):
         related_name='+',
         help_text=_('Partner name, URL and logotype')
     )
-
-
-
 
 
 class HomePage(Page):

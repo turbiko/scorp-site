@@ -110,10 +110,19 @@
           </div>
           <div class="footer-data flex-row-between">
             <div class="footer-copy">
-              &copy; 2023 Studio Animagrad <br />
-              info@animagrad.com |
-                {% translate "22 Zakrevskogo str, 02222, Kyiv" %},
-                {% translate "Ukraine" %}
+              &copy; {% now 'Y' %} Studio Animagrad <br />
+              {% if settings.home.ContactDataSettings.get_contact_data.email  %}
+              <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email}}">
+                {{settings.home.ContactDataSettings.get_contact_data.email}}
+              </a>
+              {% endif %}
+               |
+                {% if settings.home.ContactDataSettings.get_contact_data.post_addr  %}
+              {{settings.home.ContactDataSettings.get_contact_data.post_addr}}
+              {% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.post_addr2  %}
+              , {{settings.home.ContactDataSettings.get_contact_data.post_addr2}}
+              {% endif %}
             </div>
             <div class="footer-socials">
                  {% for link in settings.home.SocialMediaSettings.social_media_links.all %}

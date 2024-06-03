@@ -217,14 +217,30 @@
         <div class="contact-container flex-row-between">
           <div class="contacts-wrapper">
             <address class="contact-data-block">
-              <h2>Animagrad Animation Studio</h2>
-              <p>22 Zakrevskogo str,</p>
-              <p>02222, Kyiv,Ukraine</p>
-              <a href="mailto:info@animagrad.com">info@animagrad.com</a>
-              <p>tel: +380679976260 <br /></p>
+              {% if settings.home.ContactDataSettings.get_contact_data.name  %}
+              <h2>{{settings.home.ContactDataSettings.get_contact_data.name}}</h2>
+              {% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.post_addr  %}
+              <p>{{settings.home.ContactDataSettings.get_contact_data.post_addr}}</p>
+              {% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.post_addr2  %}
+              <p>{{settings.home.ContactDataSettings.get_contact_data.post_addr2}}</p>
+              {% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.email  %}
+              <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email}}">
+                {{settings.home.ContactDataSettings.get_contact_data.email}}
+              </a>
+              {% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.phone  %}
+              <p>tel: {{ settings.home.ContactDataSettings.get_contact_data.phone }} <br /></p>
+              {% endif %}
               <p>&nbsp;</p>
+              {% if settings.home.ContactDataSettings.get_contact_data.email_requests  %}
               <p>For requests:</p>
-              <a href="mailto:newbiz@animagrad.com">newbiz@animagrad.com</a>
+              <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email_requests}}">
+                {{settings.home.ContactDataSettings.get_contact_data.email_requests}}
+              </a>
+              {% endif %}
             </address>
             <div class="contacts-messengers">
               <div class="messenger-icon">
