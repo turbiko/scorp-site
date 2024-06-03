@@ -9,7 +9,7 @@ from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
 
-logger = logging.getLogger('mavka')
+logger = logging.getLogger('animagrad')
 
 
 class Service(Page):
