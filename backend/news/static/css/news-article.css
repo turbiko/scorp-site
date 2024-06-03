@@ -1,0 +1,81 @@
+.project-painting {
+  height: 1080px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+.project-main-content {
+  display: flex;
+  width: 1051px;
+  background: var(--White, #fff);
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: -200px;
+  padding: 80px 100px;
+}
+.page-project-title {
+}
+.page-project-title h1 {
+  color: var(--Black, #000);
+  font-family: CrazyV1;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 65px; /* 101.563% */
+  letter-spacing: 1.28px;
+  text-transform: uppercase;
+}
+.project-specifications {
+  width: calc(100%-200px);
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+.project-specifications div {
+  display: flex;
+  flex-direction: row;
+}
+.project-specifications h3 {
+  color: #252525;
+  font-family: "Kyiv*Type Titling";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 35px; /* 145.833% */
+  letter-spacing: 0.48px;
+}
+.project-specifications p {
+  color: #a1a1a1;
+  font-family: "Kyiv*Type Titling";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 35px;
+  letter-spacing: 0.48px;
+}
+.project-text {
+}
+.project-text .project-annonce-text {
+  color: var(--Black, #000);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Kyiv*Type Serif";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 0.48px;
+}
+.project-text .project-main-text p {
+  color: var(--Black, #000);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Kyiv*Type Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+}
