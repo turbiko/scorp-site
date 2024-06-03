@@ -1,16 +1,21 @@
 .career-section {
+  overflow: visible;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 20px;
   padding: 20px;
 }
 .career-buttons-block {
-  min-width: 750px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 750px;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 20px;
+  margin-top: -25%;
 }
-.hero-button {
+.career-buttons-block  .hero-button {
+  width: 320px;
   height: 35px;
   text-align: center;
   font-family: CrazyV1;
@@ -33,5 +38,28 @@
     25px 45px 18px 0px rgba(0, 0, 0, 0.07),
     25px 25px 15px 0px rgba(0, 0, 0, 0.24),
     10px 11px 11px 0px rgba(0, 0, 0, 0.41), 3px 3px 6px 0px rgba(0, 0, 0, 0.47);
+}
+.hero-button {
+  width: 350px;
+  height: 75px;
+}
 
+.career-button-section .block-text {
+  color: var(--White, #FFF);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Unbounded;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 65px;
+}
+.career-button-section {
+  width: min(95dvw, var(--max-width-content));
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -107,6 +107,11 @@ class PartnersLogotypes(Orderable):
     )
 
 
+class CarrerTitles(Orderable):
+    page = ParentalKey('wagtailcore.Page', related_name='career_titles')
+    name = models.CharField(max_length=150, blank=True, null=True)
+
+
 class HomePage(Page):
     max_count_per_parent = 1
     parent_page_types = ['wagtailcore.Page']
@@ -273,4 +278,11 @@ class Career(Page):
     template = 'home' + os.sep + 'career.html'
     parent_page_types = ['home.HomePage']
     max_count = 1
+
+    action_text = models.CharField(max_length=200, blank=True, null=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('action_text'),
+        InlinePanel('career_titles', label=_("Career positions")),
+    ]
 

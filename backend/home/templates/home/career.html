@@ -9,6 +9,9 @@
 
 {% block extra_style %}
 <style>
+    .painted-block {
+        height:600px;
+    }
       .painting-image {
         background-image: url("/static/images/production-painting.png");
       }
@@ -20,17 +23,24 @@
       <section class="section margin-centered">
 
       </section>
-      <section class="painted-block painting-image career-section">
+      <section class="painted-block painting-image">
+
+      </section>
+      <section class="career-section">
         <div class="empty-block"></div>
         <div class="career-buttons-block">
-          <div class="hero-button">button 33444</div>
-          <div class="hero-button">button 98144</div>
-          <div class="hero-button">button 98144</div>
-          <div class="hero-button">button 98144</div>
-          <div class="hero-button">button 98144</div>
-          <div class="hero-button">button 98144</div>
-          <div class="hero-button">button 98144</div>
+            {% for career_title in page.career_titles.all %}
+            <div class="hero-button">{{career_title.name}}</div>
+            {% endfor %}
         </div>
       </section>
+        <section class="career-button-section  margin-centered">
+            <div class="block-text">{{page.action_text}} →</div>
+        <div
+          class="hero-button-shadow block-shadow hero-button margin-centered hero-button-home-git"
+        >
+          <span class="hero-button-title">GET IN TOUCH</span>
+        </div>
+        </section>
     </main>
 {% endblock content %}
