@@ -19,6 +19,7 @@ from wagtail.api import APIField
 
 from core.settings import base as core_base
 from projects.models import Project
+from services.models import ServicesList
 
 logger = logging.getLogger('mavka')
 
@@ -172,7 +173,11 @@ class HomePage(Page):
         logger.info(f'Homepage (get_context) was accessed by {request.user} ')
         context = super().get_context(request)
         projects = Project.objects.live().filter(locale=Locale.get_active())
-        logger.debug(f'Projects (get_context) for {request.user} {projects.count()=}')
+        logger.debug(f'Home Projects (get_context) for {request.user} {projects.count()=} services {all_services.count()=}')
+
+        all_services = ServicesList.get_children().live().filter(locale=Locale.get_active())
+
+        context['all_services'] = all_services
 
         context['projects'] = projects
 
