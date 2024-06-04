@@ -4,12 +4,14 @@ from datetime import datetime
 
 from django.db import models
 from django.utils.translation import activate, gettext_lazy as _, get_language
-from wagtail.fields import RichTextField
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator  # pagination
 
+from wagtail.fields import RichTextField
 from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 
 logger = logging.getLogger('animagrad')
+
 
 class Project(Page):
     template = 'projects' + os.sep + 'project-page.html'
@@ -91,3 +93,15 @@ class Projects(Page):
         context['projects'] = projects
         return context
 
+
+class NewsList(Page):
+    template = 'news' + os.sep + 'news-list.html'
+    parent_page_types = ['home.HomePage']
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request)
+        # all_news = Project.objects.live().filter(locale=Locale.get_active())
+        logger.debug(f'Projects (get_context) for {request.user} {all_news.count()=}')
+
+        # context['all_news'] = all_news
+        return context
