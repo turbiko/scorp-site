@@ -40,3 +40,6 @@ gunicorn core.wsgi:application -b :8081  --workers=5   --timeout=190 --graceful-
 apt install python3.11-venv
 python3.11 -m venv venv
 source ./venv/bin/activatepip  install -r requirements.txt
+
+### pagination
+https://learnwagtail.com/tutorials/how-to-paginate-your-wagtail-pages/
