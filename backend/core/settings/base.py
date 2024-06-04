@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "menus.apps.MenusConfig",
     "services.apps.ServicesConfig",
     "projects.apps.ProjectsConfig",
+    "ournews.apps.OurnewsConfig",
 ]
 
 MIDDLEWARE = [
