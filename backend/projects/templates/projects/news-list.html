@@ -4,30 +4,162 @@
 {% block body_class %}{% endblock %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/news.css' %}">
 {% endblock extra_css %}
 
+{% block extra_style %}
+<style>
+a {
+    color: var(--White, #fff);
+}
+.news-section {
+    width: calc(var(--max-width-content));
+  display: grid;
+  grid-template-columns:auto 1fr auto;
+}
+.picture-left,
+.picture-right {
+    width: min(264px, 13dvw);
+    position: relative;
+    bottom: 0;
+}
+.picture-left img,
+.picture-right img {
+    width: min(264px, 13dvw);
+    position: absolute;
+    bottom: 0;
+  }
+.news-block {
+  height: 465px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  align-items: center;
+  flex-shrink: 0;
+  background: var(--Gray-BG, #383637);
+}
+.block-shadow {
+  box-shadow: 25px 71px 20px 0px rgba(0, 0, 0, 0.01),
+    25px 45px 18px 0px rgba(0, 0, 0, 0.07),
+    25px 25px 15px 0px rgba(0, 0, 0, 0.24),
+    10px 11px 11px 0px rgba(0, 0, 0, 0.41), 3px 3px 6px 0px rgba(0, 0, 0, 0.47);
+}
+/* news article block */
+.text-content {
+  padding-top: 50px;
+  width: calc(var(--max-width-content) - (2 * 264px));
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.news-feed {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+.news-feed p .title {
+  color: var(--White, #fff);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Kyiv*Type Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px; /* 138.889% */
+  flex: 1 0 100%;
+}
+.news-feed p .date {
+  color: var(--White, #fff);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 25px; /* 156.25% */
+}
+.paginator {
+  width: min-content;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.paginator .nav-button {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  padding: 0px 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  background: var(--Gray-Button-1, #2b2b2b);
+}
+.nav-button-shadow {
+  box-shadow: 0px 71px 20px 0px rgba(0, 0, 0, 0.01),
+    0px 45px 18px 0px rgba(0, 0, 0, 0.07), 0px 25px 15px 0px rgba(0, 0, 0, 0.24),
+    0px 11px 11px 0px rgba(0, 0, 0, 0.41), 0px 3px 6px 0px rgba(0, 0, 0, 0.47);
+}
+.pagination__link {}
+</style>
+{% endblock extra_style %}
+
 {% block content %}
-{# Pagination block #}
-{% for contact in page_obj %}
-    {# Each "contact" is a Contact model object. #}
-    {{ news.title }}<br>
-    {{ news.date }}<br>
-{% endfor %}
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+<main class="margin-centered">
+      <section class="news-section margin-centered">
+        <div class="picture-left">
+          {% image page.left_picture original as left_picture %}
+          <img src="{{left_picture.url}}" alt="">
+        </div>
+        <div class="text-content">
+          <!-- News Title -->
+          <div class="block-for-title">
+            <div class="title-block margin-centered">
+              <span class="title-text">{{page.title}}</span>
+            </div>
+          </div>
+          <!-- News block -->
+          <div class="news-block block-shadow">
+              {% for article in news %}
+            <article class="news-feed">
+              <p class="title">
+                <a href="{% pageurl article %}">{{ article.title }}</a>
+              </p>
+              <p class="date">{{ article.news_date|date}}</p>
+            </article>
+              {% endfor %}
+          </div>
+          <!-- Pagination block -->
+          <div class="paginator margin-centered">
+
+        {% if news.has_previous %}
+            <div class="nav-button nav-button-shadow"><a href="?page={{ news.previous_page_number }}">&lt;</a></div>
         {% endif %}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+        {% for num in news.paginator.page_range %}
+            {% if news.number == num %}
+                <div class="nav-button nav-button-shadow">{{ num }}</div>
+            {% elif num > news.number|add:'-3' and num < news.number|add:'3' %}
+                <div class="nav-button nav-button-shadow"><a href="?page={{ num }}">{{ num }}</a></div>
+            {% endif %}
+        {% endfor %}
 
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% if news.has_next %}
+            <div class="nav-button nav-button-shadow"><a href="?page={{ news.next_page_number }}">&gt;</a></div>
         {% endif %}
-    </span>
+          </div>
+        </div>
+
+        <div class="picture-right">
+          {% image page.right_picture original as right_picture %}
+          <img src="{{right_picture.url}}" alt="">
+        </div>
+      </section>
+    </main>
+
 </div>
 {% endblock content %}

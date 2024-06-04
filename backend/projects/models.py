@@ -10,6 +10,8 @@ from wagtail.fields import RichTextField
 from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 
+from ournews.models import NewsArticle
+
 logger = logging.getLogger('animagrad')
 
 
@@ -95,13 +97,47 @@ class Projects(Page):
 
 
 class NewsList(Page):
-    template = 'news' + os.sep + 'news-list.html'
+    template = 'projects' + os.sep + 'news-list.html'
     parent_page_types = ['home.HomePage']
+
+    posts_per_page = models.IntegerField(default=4)
+    left_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('left image')
+    )
+    right_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('right image')
+    )
+    content_panels = Page.content_panels + [
+        FieldPanel('posts_per_page'),
+        FieldPanel('left_picture'),
+        FieldPanel('right_picture'),
+    ]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request)
-        # all_news = Project.objects.live().filter(locale=Locale.get_active())
+
+        all_news = NewsArticle.objects.live().filter(locale=Locale.get_active())
         logger.debug(f'Projects (get_context) for {request.user} {all_news.count()=}')
 
-        # context['all_news'] = all_news
+        paginator = Paginator(all_news, self.posts_per_page)
+        page = request.GET.get('page')
+
+        try:
+            news = paginator.page(page)
+        except PageNotAnInteger:
+            news = paginator.page(1)
+        except EmptyPage:
+            news = paginator.page(paginator.num_pages)
+
+        context['news'] = news
         return context
