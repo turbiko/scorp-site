@@ -138,6 +138,8 @@ a {
 
         {% if news.has_previous %}
             <div class="nav-button nav-button-shadow"><a href="?page={{ news.previous_page_number }}">&lt;</a></div>
+        {% else %}
+            <div class="nav-button nav-button-shadow nav-active">&lt;</div>
         {% endif %}
 
         {% for num in news.paginator.page_range %}
@@ -150,7 +152,10 @@ a {
 
         {% if news.has_next %}
             <div class="nav-button nav-button-shadow"><a href="?page={{ news.next_page_number }}">&gt;</a></div>
+        {% else %}
+            <div class="nav-button nav-button-shadow nav-active">&gt;</div>
         {% endif %}
+
           </div>
         </div>
 
