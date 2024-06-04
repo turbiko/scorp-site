@@ -14,8 +14,10 @@ logger = logging.getLogger('animagrad')
 
 
 class NewsArticle(Page):
+    template = 'ournews' + os.sep + 'news-page.html'
 
-    short_text = models.TextField(blank=True, max_length=6500)
+    news_date = models.DateField(verbose_name=_('news date'))
+    short_text = RichTextField(blank=True, max_length=6500)
     big_text = RichTextField(blank=True, max_length=62000)
     big_picture = models.ForeignKey(
         'wagtailimages.Image',
@@ -35,6 +37,7 @@ class NewsArticle(Page):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel('news_date'),
         FieldPanel('short_text'),
         FieldPanel('big_text'),
         FieldPanel('big_picture'),
