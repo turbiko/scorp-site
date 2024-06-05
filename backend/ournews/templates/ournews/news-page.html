@@ -9,23 +9,43 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{% static 'css/project.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/projects-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news-slider.css' %}">
  <style>
-   .painting-image {
-     {% image self.big_picture original as big_picture %}
-  background-image: url("{{ big_picture.url }}");
-     background-size: cover;
+.painting-image {
+    {% image self.big_picture original as big_picture %}
+    background-image: url("{{ big_picture.url }}");
+    background-size: cover;
 }
  </style>
 {% endblock extra_css %}
         {% block extra_style %}
+<style>
+    .title-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .title-header div {
+        color: #000000;
+    }
+</style>
         {% endblock extra_style %}
 
 {% block content %}
 <main class="margin-centered">
       <section class="painting-image project-painting block-shadow"></section>
       <section class="project-main-content margin-centered block-shadow">
+          <div class="title-header">
+              <div class="news-date">{{page.news_date|date}}</div>
+              <div class="news-project">
+                  {% if page.news_for_project %}
+                  <a href="{% pageurl page.news_for_project %}"> {{page.news_for_project.title}}</a>
+                  {% else %}
+                  <a href="{% pageurl page.get_parent %}"> {{page.get_parent.title}}</a>
+                  {% endif %}
+              </div>
+          </div>
         <div class="page-project-title"><h1>{{page.title}}</h1></div>
         <div class="project-text">
           <div class="project-annonce-text">
@@ -45,18 +65,19 @@
               <div class="swiper-wrapper">
                 <!-- slides there -->
                 {% for slider_item in all_news.all %}
-
-                {% image slider_item.slider_image original as slider_img %}
-                <div
-                  class="swiper-slide"
-                  style="background-image: url('{{slider_img.url}}')"
-                >
-                  <article class="projects-card">
+                <div class="swiper-slide">
+                    <div class="slider-picture">
+                        {% image slider_item.slider_image original as slider_img %}
+                        <img src="{{slider_img.url}}"/>
+                    </div>
+                    <article class="projects-card">
                     <a href="{% pageurl slider_item %}">
                       <h3 class="projects-card__title" lang="en">{{slider_item.title}}</h3>
                     </a>
-                    <div class="projects-card__text">{{slider_item.format}}</div>
-                  </article>
+                    </article>
+                    <article class="projects-card">
+                        <div class="projects-card__text">{{slider_item.news_date|date}}</div>
+                    </article>
                 </div>
                 {% endfor %}
 
@@ -85,10 +106,10 @@
                 slidesPerView: 1,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 3,
               },
               1024: {
-                slidesPerView: 2,
+                slidesPerView: 3,
               },
             },
           });

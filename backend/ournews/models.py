@@ -15,7 +15,15 @@ logger = logging.getLogger('animagrad')
 
 class NewsArticle(Page):
     template = 'ournews' + os.sep + 'news-page.html'
+    parent_page_types = ['projects.Project']
 
+    news_for_project = models.ForeignKey(
+        'projects.Project',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='news_articles'
+    )
     news_date = models.DateField(verbose_name=_('news date'))
     short_text = RichTextField(blank=True, max_length=6500)
     big_text = RichTextField(blank=True, max_length=62000)
@@ -38,9 +46,20 @@ class NewsArticle(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('news_date'),
+        FieldPanel('news_for_project'),
         FieldPanel('short_text'),
         FieldPanel('big_text'),
         FieldPanel('big_picture'),
         FieldPanel('slider_image'),
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request)
+
+        all_news = NewsArticle.objects.live().filter(locale=Locale.get_active())
+        logger.debug(f'Projects (get_context) for {request.user} {all_news.count()=}')
+
+        context['all_news'] = all_news
+        return context
+
 
