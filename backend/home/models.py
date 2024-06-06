@@ -315,6 +315,7 @@ class CareerJoin(Page):
     parent_page_types = ['home.Career']
     max_count_per_parent = 1
 
+    action_text = models.CharField(max_length=200, blank=True)
     big_picture = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
