@@ -66,6 +66,8 @@ header {
   backdrop-filter: blur(6px);
   color: var(--White, #fff);
   align-content: center;
+  position: sticky;
+  top: 0;
 }
 header a,
 header li,
