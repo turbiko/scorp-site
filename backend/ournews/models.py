@@ -15,7 +15,7 @@ logger = logging.getLogger('animagrad')
 
 class NewsArticle(Page):
     template = 'ournews' + os.sep + 'news-page.html'
-    parent_page_types = ['projects.Project']
+    parent_page_types = ['projects.Project', 'projects.NewsList']
 
     news_for_project = models.ForeignKey(
         'projects.Project',
