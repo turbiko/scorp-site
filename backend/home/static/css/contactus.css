@@ -58,7 +58,7 @@
   flex-shrink: 0;
   flex-wrap: wrap;
   background-color: transparent;
-  color: var(--White, #fff);
+  color: var(--Gray-input, #595959);
   leading-trim: both;
   text-edge: cap;
   font-family: Unbounded;

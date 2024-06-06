@@ -11,7 +11,7 @@ from modelcluster.models import ClusterableModel
 from wagtail.contrib.settings.models import BaseSiteSetting
 from wagtail.contrib.settings.registry import register_setting
 from wagtail.models import Page, Orderable, Locale
-from wagtail.admin.panels import MultiFieldPanel,  TabbedInterface, ObjectList
+from wagtail.admin.panels import MultiFieldPanel, TabbedInterface, ObjectList
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
 from wagtail.documents import get_document_model
@@ -31,6 +31,27 @@ class Contact(models.Model):  # contact form
 
     def __str__(self):
         return f"Contact {self.name}"
+
+
+class CareerContact(models.Model):  # career contact form
+    first_name = models.CharField(max_length=230, verbose_name=_('Name'))
+    last_name = models.CharField(max_length=230, verbose_name=_('Name'))
+    email = models.EmailField(max_length=255, verbose_name=_('Email address'))
+    birthday = models.DateField(null=True, verbose_name=_('Birthday'))
+    country_residence = models.CharField(max_length=230, verbose_name=_('country of residence'))
+    phone = models.CharField(max_length=230, verbose_name=_('phone'))
+    nationality = models.CharField(max_length=230, verbose_name=_('nationality'))
+    main_skill = models.CharField(max_length=230, verbose_name=_('main skill'))
+    secondary_skill = models.CharField(max_length=230, verbose_name=_('secondary skill'))
+    other_skill = models.CharField(max_length=230, verbose_name=_('other skill'))
+    software = models.CharField(max_length=230, verbose_name=_('software'))
+    availability = models.CharField(max_length=230, verbose_name=_('availability'))
+    linkedin = models.CharField(max_length=230, verbose_name=_('linkedin'))
+    website_reel = models.CharField(max_length=230, verbose_name=_('website reel'))
+    message_about = models.TextField(verbose_name=_('message about'))
+
+    def __str__(self):
+        return f"Career contact {self.first_name} {self.first_name}"
 
 
 class SocialMediaLink(Orderable):
@@ -223,7 +244,8 @@ class OurTeamCompany(Orderable):
 class About(Page):
     template = 'home' + os.sep + 'about.html'
     parent_page_types = ['home.HomePage']
-    max_count = 1
+    max_count_per_parent = 1
+
     big_picture = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -259,7 +281,8 @@ class About(Page):
 class ContactPage(Page):
     template = 'home' + os.sep + 'contactus.html'
     parent_page_types = ['home.HomePage']
-    max_count = 1
+    max_count_per_parent = 1
+
     big_picture = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -274,10 +297,10 @@ class ContactPage(Page):
     ]
 
 
-class Career(Page):
+class Career(Page):  # page with career oportunities list
     template = 'home' + os.sep + 'career.html'
     parent_page_types = ['home.HomePage']
-    max_count = 1
+    max_count_per_parent = 1
 
     action_text = models.CharField(max_length=200, blank=True, null=True)
 
@@ -286,3 +309,23 @@ class Career(Page):
         InlinePanel('career_titles', label=_("Career positions")),
     ]
 
+
+class CareerJoin(Page):
+    template = 'home' + os.sep + 'career-contact-form.html'
+    parent_page_types = ['home.Career']
+    max_count_per_parent = 1
+
+    big_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Page top image')
+    )
+    content_panels = Page.content_panels + [
+        FieldPanel('big_picture'),
+    ]
+
+    def __str__(self):
+        return f"{self.title}"

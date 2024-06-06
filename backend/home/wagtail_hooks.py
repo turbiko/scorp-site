@@ -1,6 +1,6 @@
 from wagtail_modeladmin.options import ModelAdmin, modeladmin_register
 
-from .models import OurTeam, Contact
+from .models import OurTeam, Contact, CareerContact
 
 
 class OurTeamAdmin(ModelAdmin):
@@ -31,3 +31,17 @@ class ContactAdmin(ModelAdmin):
 
 
 modeladmin_register(ContactAdmin)
+
+class CareerContactAdmin(ModelAdmin):
+    model = CareerContact
+    menu_icon = 'pick'
+    menu_label = 'Career Contact form'
+    menu_order = 210
+    add_to_settings_menu = False
+    exclude_from_explorer = False
+    list_display = ("first_name", "email", "message_about")
+    list_filter = ("first_name", "email")
+    search_fields = ("first_name", "email", "message_about")
+
+
+modeladmin_register(CareerContactAdmin)

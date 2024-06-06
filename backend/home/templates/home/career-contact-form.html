@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static  wagtailimages_tags i18n%}
+{% get_current_language as LANGUAGE_CODE %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}" />
+{% endblock extra_css %}
+
+{% block extra_style %}
+<style>
+  .painting-image {
+  {% image self.big_picture original as big_picture %}
+  background-image: url("{{ big_picture.url }}");
+    background-position: top;
+    background-repeat: no-repeat;
+
+}
+</style>
+{% endblock extra_style %}
+
+{% block content %}
+    <main class="main-about margin-centered">
+      <section class="section margin-centered">
+        <div class="block-for-title">
+          <div class="title-block margin-centered">
+            <span class="title-text">{{page.title}}</span>
+          </div>
+        </div>
+      </section>
+      <section class="painted-block painting-image contact-us">
+        <div class="contact-container flex-row-between">
+          <div class="contacts-wrapper">
+
+          </div>
+            {% if messages %}
+        <ul class="messages" lang="{{ LANGUAGE_CODE }}">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+          <div class="contact-form-block">
+            <form  method="post" action="{% url 'home:submit_career_form' %}">
+            {% csrf_token %}
+            <div class="contact-form-input-block">
+              <div class="input-block">
+                <div class="contact-input">{{ form.first_name }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.last_name }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.birthday }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.country_residence }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.phone }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.nationality }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.main_skill }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.secondary_skill }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.other_skill }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.software }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.availability }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.linkedin }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.website_reel }}</div>
+                <hr />
+              </div>
+              <div class="input-block">
+                <div class="contact-input">{{ form.message_about }}</div>
+                <hr />
+              </div>
+            </div>
+            <button type="submit"
+              class="hero-button-shadow block-shadow hero-button message-button"
+            >
+              <span class="hero-button-title">Send</span>
+            </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock content %}

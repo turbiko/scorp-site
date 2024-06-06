@@ -89,6 +89,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 'wagtail.contrib.settings.context_processors.settings',  # added
                 'home.context_processors.contact_form',  # added for contact form
+                'home.context_processors.career_contact_form',  # added for career contact form
                 'django.template.context_processors.i18n',  # translations
             ],
         },
