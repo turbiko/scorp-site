@@ -83,7 +83,8 @@ class Projects(Page):
     template = 'projects' + os.sep + 'projects-list.html'
     parent_page_types = ['home.HomePage']
     child_page_types = ['projects.Project']
-    max_count = 1
+    max_count_per_parent = 1
+    # max_count = 1
 
     def get_context(self, request):  # Projects_List
         context = super().get_context(request)
@@ -99,6 +100,7 @@ class Projects(Page):
 class NewsList(Page):
     template = 'projects' + os.sep + 'news-list.html'
     parent_page_types = ['home.HomePage']
+    max_count_per_parent = 1
 
     posts_per_page = models.IntegerField(default=4)
     left_picture = models.ForeignKey(
