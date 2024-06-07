@@ -23,6 +23,15 @@
   {% image self.big_picture original as intro_bg %}
   background: url("{{ intro_bg.url }}") lightgray 50% / cover no-repeat;
 }
+.get-in-touch {
+display: flex;
+width: 350px;
+height: 70px;
+justify-content: center;
+align-items: center;
+gap: 20px;
+flex-shrink: 0;
+}
 .about-container {
   {% image self.about_background original as about_background %}
         background: url("{{ about_background.url }}") lightgray 50% / cover no-repeat;
@@ -53,8 +62,8 @@
       <!-- main -->
 <section class="intro-block block-shadow">
     <div class="intro-button-block">
-      <div class="hero-button-shadow block-shadow hero-button hero-button-home">
-        <span class="hero-button-title">{% trans "Skip intro" %}</span>
+      <div class="block-shadow hero-button hero-button-home">
+        <span class="hero-button-title">{% translate "Skip intro" %}</span>
       </div>
     </div>
 </section>
@@ -78,7 +87,7 @@
 </div>
       <section class="button-section">
         <div
-          class="hero-button-shadow block-shadow hero-button margin-centered hero-button-home-git"
+          class="block-shadow hero-button margin-centered hero-button-home-git get-in-touch"
         >
           <span class="hero-button-title">GET IN TOUCH</span>
         </div>
@@ -174,7 +183,7 @@
 
       <section class="button-section">
         <div
-          class="hero-button-shadow block-shadow hero-button margin-centered hero-button-home-git"
+          class=" block-shadow hero-button margin-centered hero-button-home-git get-in-touch"
         >
           <span class="hero-button-title">GET IN TOUCH</span>
         </div>
@@ -295,9 +304,9 @@
               </div>
             </div>
             <button type="submit"
-              class="hero-button-shadow block-shadow hero-button message-button"
+              class=" block-shadow hero-button message-button"
             >
-              <span class="hero-button-title">Send message</span>
+              <span class="hero-button-title">{% translate "Send message" %} </span>
             </button>
             </form>
           </div>
