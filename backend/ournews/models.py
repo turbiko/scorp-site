@@ -10,7 +10,8 @@ from wagtail.fields import RichTextField
 from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 
-logger = logging.getLogger('animagrad')
+
+logger = logging.getLogger(__name__)
 
 
 class NewsArticle(Page):

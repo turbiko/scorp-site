@@ -12,7 +12,8 @@ from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 
 from ournews.models import NewsArticle
 
-logger = logging.getLogger('animagrad')
+
+logger = logging.getLogger(__name__)
 
 
 class Project(Page):

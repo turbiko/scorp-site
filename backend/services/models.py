@@ -9,7 +9,7 @@ from wagtail.models import Page, Orderable, Locale
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
 
-logger = logging.getLogger('animagrad')
+logger = logging.getLogger(__name__)
 
 
 class Service(Page):
@@ -20,13 +20,13 @@ class Service(Page):
         'services.ServicePostProduction',
         'services.ServiceArtStoryProduction',
     ]
-    # child_page_types = ['services.Service']
 
 
 class ServiceProduction(Page):
     template = 'services' + os.sep + 'service-production.html'
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
+    max_count_per_parent = 1
 
     body = RichTextField(_('Body'), blank=True, null=True)
     service_painting = models.ForeignKey(
@@ -56,6 +56,7 @@ class ServicePreProduction(Page):
     template = 'services' + os.sep + 'service-preproduction.html'
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
+    max_count_per_parent = 1
 
     body = RichTextField(_('Body'), blank=True, null=True)
     service_painting = models.ForeignKey(
@@ -85,6 +86,7 @@ class ServicePostProduction(Page):
     template = 'services' + os.sep + 'service-postproduction.html'
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
+    max_count_per_parent = 1
 
     body = RichTextField(_('Body'), blank=True, null=True)
     service_painting = models.ForeignKey(
@@ -114,6 +116,7 @@ class ServiceArtStoryProduction(Page):
     template = 'services' + os.sep + 'service-artstoryproduction.html'
     parent_page_types = ['services.ServicesList']
     child_page_types = ['services.Service']
+    max_count_per_parent = 1
 
     body = RichTextField(_('Body'), blank=True, null=True)
     body2 = RichTextField(_('Body 2'), blank=True, null=True)
@@ -155,10 +158,5 @@ class ServicesList(Page):
         logger.debug(f'Projects (get_context) for {request.user} {all_services.count()=}')
 
         context['all_services'] = all_services
-        print(f"{all_services=}")
-        for service in all_services:
-            print(f"{service.title=}")
-            print(f"{service.specific.service_painting=}")
-            print(f"{service.specific.icon=}")
 
         return context
