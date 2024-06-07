@@ -1,3 +1,5 @@
+import logging
+
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
@@ -8,6 +10,9 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+
+
+logger = logging.getLogger(__name__)
 
 urlpatterns = [
     path('home/', include('home.urls'), name='home'),

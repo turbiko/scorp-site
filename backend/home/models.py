@@ -21,7 +21,7 @@ from core.settings import base as core_base
 from projects.models import Project
 from services.models import ServicesList
 
-logger = logging.getLogger('animagrad')
+logger = logging.getLogger(__name__)
 
 
 class Contact(models.Model):  # contact form
