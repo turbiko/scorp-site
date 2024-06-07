@@ -82,6 +82,7 @@ a {
   line-height: 25px; /* 156.25% */
 }
 .paginator {
+  height: 50px;
   width: min-content;
   display: flex;
   flex-direction: row;
@@ -135,7 +136,7 @@ a {
           </div>
           <!-- Pagination block -->
           <div class="paginator margin-centered">
-
+{% if news.has_other_pages %}
         {% if news.has_previous %}
             <div class="nav-button nav-button-shadow"><a href="?page={{ news.previous_page_number }}">&lt;</a></div>
         {% else %}
@@ -155,8 +156,9 @@ a {
         {% else %}
             <div class="nav-button nav-button-shadow nav-active">&gt;</div>
         {% endif %}
-
+{% endif %}
           </div>
+
         </div>
 
         <div class="picture-right">
