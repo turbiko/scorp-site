@@ -10,11 +10,11 @@
           {% if page_obj.number > 2 %}
             <li class="pagination__item">
               <a class="pagination__link" href="{{ path|remove_page }}"
-                 title="{% trans 'First page' %}">&laquo;</a>
+                 title="{% translate 'First page' %}">&laquo;</a>
             </li>
             <li class="pagination__item">
               <a class="pagination__link" href="{{ path|set_page:page_obj.previous_page_number }}"
-                 title="{% trans 'Previous page' %}">&lsaquo;</a>
+                 title="{% translate 'Previous page' %}">&lsaquo;</a>
             </li>
           {% endif %}
 
@@ -90,10 +90,10 @@
 
           {% if page_obj.number|add:2 <= page_obj.paginator.num_pages %}
             <li class="pagination__item">
-              <a class="pagination__link" href="{{ path|set_page:page_obj.next_page_number }}" title="{% trans 'Next page' %}">&rsaquo;</a>
+              <a class="pagination__link" href="{{ path|set_page:page_obj.next_page_number }}" title="{% translate 'Next page' %}">&rsaquo;</a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link" href="{{ path|set_page:page_obj.paginator.num_pages }}" title={% trans 'Last page' %}>&raquo;</a>
+              <a class="pagination__link" href="{{ path|set_page:page_obj.paginator.num_pages }}" title={% translate 'Last page' %}>&raquo;</a>
             </li>
           {% endif %}
 
