@@ -128,7 +128,7 @@ class PartnersLogotypes(Orderable):
     )
 
 
-class CarrerTitles(Orderable):
+class CareerTitles(Orderable):
     page = ParentalKey('wagtailcore.Page', related_name='career_titles')
     name = models.CharField(max_length=150, blank=True, null=True)
 
