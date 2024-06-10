@@ -33,8 +33,10 @@
             <p>{{page.category}}</p>
           </div>
           <div>
-            <h3>Genre:</h3>
-            <p>{{page.genre}}</p>
+            <h3>{% translate "Genre" %}:</h3>
+            <p>{% for genre in genres %}{{genre.name }}
+                        {% if forloop.last %} {% else %},&nbsp; {% endif %}
+                        {% endfor %}</p>
           </div>
           <div>
             <h3>Running time:</h3>
@@ -139,6 +141,7 @@
             },
           });
         </script>
-    </main>
+
+
 
 {% endblock content %}
