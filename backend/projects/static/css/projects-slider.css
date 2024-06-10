@@ -143,8 +143,6 @@
 }
 .projects-card__title {
   display: flex;
-  width: 650px;
-  height: 41px;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
