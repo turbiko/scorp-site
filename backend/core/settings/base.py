@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "wagtail",
     "wagtail_localize",
     "wagtail_localize.locales",
-    # "wagtail.contrib.modeladmin",
     'wagtail.contrib.settings',  # site settings https://docs.wagtail.org/en/v3.0.1/reference/contrib/settings.html
     "wagtail_modeladmin",  # >5.1  https://wagtailmenus.readthedocs.io/en/stable/installation.html
     "modelcluster",
@@ -69,6 +68,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    # 'wagtail_localize.middleware.LocalizeMiddleware',  # added translation
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     'home.middleware.AdminRedirectMiddleware',
 ]
@@ -159,6 +159,9 @@ WAGTAIL_I18N_ENABLED = True
 USE_L10N = True
 
 USE_TZ = False
+
+WAGTAILLOCALIZE_MODELTRANSLATION_SYNC_TREE = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
