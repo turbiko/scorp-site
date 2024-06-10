@@ -32,6 +32,7 @@ class ContactAdmin(ModelAdmin):
 
 modeladmin_register(ContactAdmin)
 
+
 class CareerContactAdmin(ModelAdmin):
     model = CareerContact
     menu_icon = 'pick'
@@ -45,3 +46,4 @@ class CareerContactAdmin(ModelAdmin):
 
 
 modeladmin_register(CareerContactAdmin)
+
