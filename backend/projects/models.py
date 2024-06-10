@@ -1,19 +1,46 @@
 import os
 import logging
+import uuid
 from datetime import datetime
+
+# from wagtail_localize.models import TranslatableMixin
 
 from django.db import models
 from django.utils.translation import activate, gettext_lazy as _, get_language
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator  # pagination
 
+from modelcluster.fields import ParentalKey
+
 from wagtail.fields import RichTextField
-from wagtail.models import Page, Orderable, Locale
+from wagtail.models import Page, Orderable, Locale, TranslatableMixin
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
+from wagtail.snippets.models import register_snippet
 
 from ournews.models import NewsArticle
 
 
 logger = logging.getLogger(__name__)
+
+
+@register_snippet
+class Genre(TranslatableMixin, models.Model):
+    translation_key = models.UUIDField(default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ProjectGenres(Orderable):
+    page = ParentalKey('projects.Project', related_name='project_genres')
+    genre = models.ForeignKey('projects.Genre', related_name='+', null=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return f"{self.page.title} - {self.genre.name}"
+
+    panels = [
+        FieldPanel('genre'),
+    ]
 
 
 class Project(Page):
@@ -52,6 +79,7 @@ class Project(Page):
     content_panels = Page.content_panels + [
         FieldPanel('category'),
         FieldPanel('genre'),
+        InlinePanel('project_genres', label=_("project genres")),
         FieldPanel('running_time'),
         FieldPanel('audience'),
         FieldPanel('format'),
@@ -75,8 +103,13 @@ class Project(Page):
         # context['projects'] for carousel
         projects = Project.objects.live().filter(locale=Locale.get_active())
         logger.debug(f'Projects (get_context) for {request.user} {projects.count()=}')
-
         context['projects'] = projects
+
+        # Add genres to the context
+        project_genres = self.project_genres.all()
+        genres = [pg.genre for pg in project_genres if pg.genre]
+        context['genres'] = genres
+
         return context
 
 
