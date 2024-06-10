@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static  wagtailimages_tags i18n%}
+{% load static  wagtailimages_tags i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 {% block body_class %}template-homepage{% endblock %}
 
@@ -19,7 +19,6 @@
   background-image: url("{{ big_picture.url }}");
     background-position: top;
     background-repeat: no-repeat;
-
 }
 </style>
 {% endblock extra_style %}
@@ -38,10 +37,10 @@
           <div class="contacts-wrapper">
 
           </div>
-            {% if messages %}
+        {% if messages %}
         <ul class="messages" lang="{{ LANGUAGE_CODE }}">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
             </li>
             {% endfor %}
         </ul>

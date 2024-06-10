@@ -94,10 +94,10 @@
               </div>
             </div>
           </div>
-            {% if messages %}
+        {% if messages %}
         <ul class="messages" lang="{{ LANGUAGE_CODE }}">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
             </li>
             {% endfor %}
         </ul>
