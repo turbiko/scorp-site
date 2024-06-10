@@ -23,7 +23,7 @@
           </div>
         </div>
       </section>
-      <section class="projects-section section">
+
         <div class="slider_container">
           <!-- swiper -->
           <div class="container-section__slider">
@@ -54,7 +54,9 @@
           </div>
         </div>
 
-        <!-- SCRIPTS -->
+
+{% endblock content %}
+        {% block extra_js %}
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script>
           const swiper = new Swiper(".swiper-container", {
@@ -79,8 +81,4 @@
             },
           });
         </script>
-      </section>
-    </main>
- <!-- SCRIPTS -->
-
-{% endblock content %}
+        {% endblock extra_js %}
