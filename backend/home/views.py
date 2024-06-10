@@ -42,8 +42,7 @@ def submit_career_form(request):
     if request.method == 'POST':
         form = CareerContactForm(request.POST)
         if form.is_valid():
-            print('Form valid, send some data')
-            subject = "site form"
+            subject = "career form"
             message = f"From: {form.cleaned_data['name']}<br>Email: {form.cleaned_data['email']}<br>Message: {form.cleaned_data['message']}"
             admin_emails = [email for name, email in settings.ADMINS]
             CareerContact.objects.create(
