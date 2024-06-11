@@ -1,21 +1,25 @@
 {% extends "base.html" %}
-{% load static  wagtailimages_tags i18n%}
+{% load static wagtailimages_tags wagtailcore_tags i18n%}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
 <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
     <link
       href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="{% static 'css/about.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/slider.css' %}" />
-{% endblock extra_css %}
+    <link rel="stylesheet" href="{% static 'css/stuff-slider.css' %}" />
 
+
+{% endblock extra_css %}
+<style>
+  .swiper-container {
+	width: auto;
+}
+</style>
 {% block extra_style %}
 <style>
 .intro-block {
@@ -34,6 +38,12 @@
 }
 .our-services {
   background-image: url("/static/images/services-painting.png");
+}
+.stuff-card {
+    flex: 0 0 25%; /* Ensures that each card takes exactly 25% of the slide */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 5px;
+    text-align: center;
 }
 </style>
 {% endblock extra_style %}
@@ -129,36 +139,45 @@
           <span class="title-text">Our team</span>
         </div>
         <div class="team-slider-block">
-          <div class="fly-left">
-            <img src="/static/img/crow-left.png" alt="" />
-          </div>
 
-    <div class="swiper-container team-members">
-       <div class="swiper-wrapper">
-    {% for team in grouped_team_members %}
-      <div class="swiper-slide team-cards">
-      {% for member in team %}
-          <div class="stuff-card">
-            {% if member.our_team.big_picture %}
-            {% image member.our_team.big_picture original as img_stuff %}
-            <img src="{{ img_stuff.url }}" alt="Team Member {{ member.our_team.name }}" />
-            {% endif %}
-            <div class="stuff-info">
-                <p class="stuff-position">{{ member.our_team.position }}</p>
-                <p class="stuff-name">{{ member.our_team.name }}</p>
-                <p class="stuff-name">{{ member.our_team.last_name }}</p>
+        <div class="slider_container">
+          <!-- swiper -->
+          <div class="container-section__slider">
+
+            <div class="fly-left"><span>
+              <img src="/static/img/crow-left.png" alt="" /></span>
             </div>
-          </div>
-      {% endfor %}
-      </div>
-    {% endfor %}
-       </div>
 
-    </div>
+            <div class="swiper-container">
 
-          <div class="fly-right">
-            <img src="/static/img/crow-right.png" alt="" />
+
+              <div class="swiper-wrapper">
+                <!-- slides -->
+                {% for team in grouped_team_members %}
+                <div class="swiper-slide">
+                  {% for slider_item in team %}
+                {% image slider_item.our_team.big_picture fill-325x325 as slider_img %}
+                  <article class="stuff-card">
+                    <img src="{{slider_img.url}}" alt="{{slider_item.position}}" />
+                    <h3 class="stuff-position" lang="en">{{slider_item.our_team.position}}</h3>
+                    <div class="stuff-name">{{slider_item.our_team.name}}</div>
+                    <div class="stuff-name">{{slider_item.our_team.last_name}}</div>
+                  </article>
+                  {% endfor %}
+                </div>
+                {% endfor %}
+              </div>
+
+            </div>
+
+            <div class="fly-right "><span>
+              <img src="/static/img/crow-right.png" alt="" />
+            </span></div>
+
+
           </div>
+        </div>
+
         </div>
         <div
           class="all-news-button hero-button-shadow block-shadow hero-button margin-centered"
@@ -167,22 +186,31 @@
         </div>
       </section>
 
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var swiper = new Swiper('.swiper-container', {
-     slidesPerView: 4,
-    spaceBetween: 30,
-
-    navigation: {
-      nextEl: '.fly-right',
-      prevEl: '.fly-left',
-    },
-
-    },
-  });
-});
-</script>
 
 {% endblock content %}
+      {% block extra_js %}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script>
+          const swiper = new Swiper(".swiper-container", {
+            loop: false, // Циклічний скролінг = true
+            slidesPerView: 4, // Кількість слайдів для показу
+            spaceBetween: 20, // Відстань між слайдами
+            navigation: {
+              nextEl: ".fly-right",
+              prevEl: ".fly-left",
+            },
+            breakpoints: {
+              // Правила для різних розмірів вікон
+              320: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            },
+          });
+        </script>
+        {% endblock extra_js %}
