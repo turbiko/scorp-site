@@ -24,7 +24,6 @@ picture,
 svg,
 video {
   display: block;
-  max-width: 100%;
 }
 /* Improved heading in supported browsers */
 h1,
