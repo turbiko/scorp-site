@@ -34,7 +34,7 @@ class NewsArticle(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('project top image')
+        help_text=_('news top image')
     )
     slider_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -42,7 +42,7 @@ class NewsArticle(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('project image for slider')
+        help_text=_('news image for slider 500x359')
     )
 
     content_panels = Page.content_panels + [

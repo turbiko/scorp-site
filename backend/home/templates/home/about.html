@@ -45,6 +45,9 @@
     margin: 5px;
     text-align: center;
 }
+a:visited {
+  color: var(--White);
+}
 </style>
 {% endblock extra_style %}
 
@@ -80,81 +83,69 @@
           </p>
         </div>
       </section>
+
       <section class="section margin-centered">
         <div class="block-for-title">
           <div class="title-block margin-centered">
             <span class="title-text">News</span>
           </div>
         </div>
-        <div class="about-news-carousel margin-centered">
-          <div class="news-card-about">
-            <div class="news-image-box">
-              <img src="/static/images/carousel-1.png" alt="" />
+
+        <div class="slider_container">
+          <!-- swiper -->
+          <div class="container-section__slider about-news-carousel margin-centered">
+            <div class="swiper-container news-slider">
+              <div class="swiper-wrapper">
+                <!-- slides there -->
+                {% for slider_item in all_news %}
+                <div class="swiper-slide news-card-about">
+                  <div class="news-image-box ">
+                    {% image slider_item.slider_image original as slider_img %}
+                              <img src="{{slider_img.url}}"/>
+                  </div>
+                  <div class="news-about-title">
+                    <a href="{% pageurl slider_item %}">
+                            {{slider_item.title}}
+                    </a>
+                  </div>
+                  <div class="news-about-date">{{slider_item.news_date|date}}</div>
+                </div>
+
+                {% endfor %}
+
+              </div>
             </div>
-            <div class="news-about-title">
-              Мавка – культурна дипломатка. Як анімаційний хіт просуває
-              українські наративи в Європі
-            </div>
-            <div class="news-about-date">26 Март 2024</div>
-          </div>
-          <div class="news-card-about">
-            <div class="news-image-box">
-              <img src="/static/images/carousel-2.png" alt="" />
-            </div>
-            <div class="news-about-title">
-              Мавка – культурна дипломатка. Як анімаційний хіт просуває
-              українські наративи в Європі
-            </div>
-            <div class="news-about-date">26 Март 2024</div>
-          </div>
-          <div class="news-card-about">
-            <div class="news-image-box">
-              <img src="/static/images/carousel-3.png" alt="" />
-            </div>
-            <div class="news-about-title">
-              Мавка – культурна дипломатка. Як анімаційний хіт просуває
-              українські наративи в Європі
-            </div>
-            <div class="news-about-date">26 Март 2024</div>
-          </div>
-          <div class="news-card-about">
-            <div class="news-image-box">
-              <img src="/static/images/carousel-4.png" alt="" />
-            </div>
-            <div class="news-about-title">
-              Мавка – культурна дипломатка. Як анімаційний хіт просуває
-              українські наративи в Європі
-            </div>
-            <div class="news-about-date">26 Март 2024</div>
+
           </div>
         </div>
+
         <div
           class="all-news-button hero-button-shadow block-shadow hero-button margin-centered"
         >
           <span class="hero-button-title">All news</span>
         </div>
       </section>
+
       <section class="painted-block our-team">
         <div class="title-block margin-centered">
           <span class="title-text">Our team</span>
         </div>
         <div class="team-slider-block">
 
-        <div class="slider_container">
-          <!-- swiper -->
-          <div class="container-section__slider">
+          <div class="slider_container news-slider-container">
+          <!-- swiper team -->
+          <div class="container-section__slider container-team__slider">
 
             <div class="fly-left"><span>
               <img src="/static/img/crow-left.png" alt="" /></span>
             </div>
 
-            <div class="swiper-container">
-
+            <div class="swiper-container stuff-slider">
 
               <div class="swiper-wrapper">
-                <!-- slides -->
+                <!-- slides team -->
                 {% for team in grouped_team_members %}
-                <div class="swiper-slide">
+                <div class="swiper-slide stuff-slide">
                   {% for slider_item in team %}
                 {% image slider_item.our_team.big_picture fill-325x325 as slider_img %}
                   <article class="stuff-card">
@@ -174,7 +165,6 @@
               <img src="/static/img/crow-right.png" alt="" />
             </span></div>
 
-
           </div>
         </div>
 
@@ -188,10 +178,35 @@
 
 
 {% endblock content %}
+
       {% block extra_js %}
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-        <script>
-          const swiper = new Swiper(".swiper-container", {
+        <script> <!-- news -->
+          const swiper_news = new Swiper(".news-slider", {
+            loop: false, // Циклічний скролінг = true
+            slidesPerView: 3, // Кількість слайдів для показу
+            spaceBetween: 20, // Відстань між слайдами
+            navigation: {
+              nextEl: ".go-next",
+              prevEl: ".go-prev",
+            },
+            breakpoints: {
+              // Правила для різних розмірів вікон
+              320: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            },
+          });
+        </script>
+
+        <script> <!-- stuff -->
+          const swiper = new Swiper(".stuff-slider", {
             loop: false, // Циклічний скролінг = true
             slidesPerView: 4, // Кількість слайдів для показу
             spaceBetween: 20, // Відстань між слайдами

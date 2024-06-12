@@ -18,6 +18,7 @@ from wagtail.documents import get_document_model
 from wagtail.api import APIField
 
 from core.settings import base as core_base
+from ournews.models import NewsArticle
 from projects.models import Project
 from services.models import ServicesList
 
@@ -240,6 +241,9 @@ class OurTeamCompany(Orderable):
     our_team = models.ForeignKey(OurTeam, related_name='+', null=True, on_delete=models.SET_NULL)
     page = ParentalKey('home.About', related_name='our_team')
 
+    def __str__(self):
+        return f"{self.our_team.position} - {self.our_team.name}"
+
 
 class About(Page):
     template = 'home' + os.sep + 'about.html'
@@ -267,14 +271,19 @@ class About(Page):
         ),
     ]
 
+    def __str__(self):
+        return self.title
+
     def get_context(self, request):
         context = super().get_context(request)
         team_members = self.our_team.all()
 
         grouped_teams = list(team_members)
-
         context['grouped_team_members'] = [grouped_teams[i:i + 2] for i in range(0, len(grouped_teams), 2)]
-        print("Team members context = ", context['grouped_team_members'])
+
+        all_news = NewsArticle.objects.live().filter(locale=Locale.get_active())
+        context['all_news'] = all_news
+        print(f"{all_news.count()=}")
         return context
 
 

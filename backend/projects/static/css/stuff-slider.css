@@ -13,10 +13,13 @@
   padding: 0 24px;
 
 }
-.swiper-container {
+.stuff-slider {
 overflow: hidden;
 }
 .container-section__slider {
+
+}
+.container-team__slider {
   /*width: calc(100% - 150px);*/
   margin-inline: auto;
   display: flex;
@@ -27,8 +30,8 @@ overflow: hidden;
 }
 .swiper-container {
   width: 100%;
-
 }
+.stuff-container {}
 .swiper-wrapper {
   padding: 15px;
 }
@@ -36,7 +39,7 @@ overflow: hidden;
   width: 100%;
   height: 300px;
 }
-.swiper-slide {
+.stuff-slide {
   display: grid;
   place-items: center;
   height: fit-content;
