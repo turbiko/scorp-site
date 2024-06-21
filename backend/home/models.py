@@ -90,6 +90,8 @@ class ContactData(Orderable):  # for site contact block
     post_addr2 = models.CharField(max_length=200, blank=True, null=True)
     email = models.EmailField(max_length=50, blank=True, null=True)
     email_requests = models.EmailField(max_length=50, blank=True, null=True)
+    viber_contact = models.CharField(max_length=255, blank=True, null=True)
+    telegram_contact = models.CharField(max_length=255, blank=True, null=True)
 
 
 @register_setting
