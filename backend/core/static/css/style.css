@@ -129,6 +129,7 @@ nav {
 }
 .footer-data {
   width: 100%;
+  align-items: center;
 }
 .footer-copy {
   color: var(--White, #fff);
