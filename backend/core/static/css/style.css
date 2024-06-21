@@ -123,8 +123,8 @@ nav {
   gap: 13px;
 }
 .footer-logo {
-  width: 52px;
-  height: 37px;
+  /*width: 52px;*/
+  /*height: 37px;*/
   flex-shrink: 0;
 }
 .footer-data {
