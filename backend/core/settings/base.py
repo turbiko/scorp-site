@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail",
+    # 'wagtail_modeltranslation',
+    # 'modeltranslation',
+    # 'wagtail_modeltranslation.makemigrations',
+    # 'wagtail_modeltranslation.migrate',
     "wagtail_localize",
     "wagtail_localize.locales",
     'wagtail.contrib.settings',  # site settings https://docs.wagtail.org/en/v3.0.1/reference/contrib/settings.html
@@ -161,7 +165,7 @@ USE_L10N = True
 USE_TZ = False
 
 WAGTAILLOCALIZE_MODELTRANSLATION_SYNC_TREE = True
-
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 

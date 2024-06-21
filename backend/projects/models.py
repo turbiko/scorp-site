@@ -49,6 +49,7 @@ class Project(Page):
 
     category = models.TextField(blank=True, max_length=100)
     genre = models.TextField(blank=True, max_length=100)
+    genres = models.ManyToManyField('projects.Genre', blank=True)
     audience = models.TextField(blank=True, max_length=100)
     running_time = models.TextField(blank=True, max_length=100)
     format = models.TextField(blank=True, max_length=100)
@@ -79,6 +80,7 @@ class Project(Page):
     content_panels = Page.content_panels + [
         FieldPanel('category'),
         FieldPanel('genre'),
+        FieldPanel('genres'),  # try translations
         InlinePanel('project_genres', label=_("project genres")),
         FieldPanel('running_time'),
         FieldPanel('audience'),
