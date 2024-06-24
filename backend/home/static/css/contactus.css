@@ -27,6 +27,9 @@
 .contact-data-block h2 {
   font-weight: 400;
 }
+.contact-data-block a {
+  color: var(--White, #fff);
+}
 .contacts-messengers {
   display: flex;
   flex-direction: row;
