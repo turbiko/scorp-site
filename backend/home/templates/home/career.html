@@ -9,8 +9,20 @@
 
 {% block extra_style %}
 <style>
+    body {
+        min-width: 820px;
+    }
     .painted-block {
-        height:600px;
+        min-height:600px;
+        overflow: visible;
+        background-size: auto;
+        align-items: flex-end;
+    }
+    .career-buttons-block {
+        width: min(750px, 45dvw);
+        margin-top: 200px;
+        min-height: 270px;
+        justify-content: center;
     }
       .painting-image {
         {% image self.big_picture original as big_picture %}
@@ -30,24 +42,26 @@
         </div>
       </section>
       <section class="painted-block painting-image">
-      </section>
-
-        <section class="career-section">
+        <div class="career-section">
             <div class="empty-block"></div>
             <div class="career-buttons-block">
                 {% for career_title in page.career_titles.all %}
                 <div class="hero-button">{{career_title.name}}</div>
                 {% endfor %}
             </div>
-        </section>
+        </div>
 
-        <section class="career-button-section  margin-centered">
+        <div class="career-button-section  margin-centered">
             <div class="block-text">{{page.action_text}} →</div>
         <div
           class="hero-button-shadow block-shadow hero-button margin-centered hero-button-home-git"
         >
           <span class="hero-button-title">Send an aplication</span>
         </div>
-        </section>
+        </div>
+      </section>
+
+
+
 
 {% endblock content %}
