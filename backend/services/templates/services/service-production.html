@@ -15,7 +15,7 @@
 .production {
     width: min(35dvw, calc(var(--max-width-screen) / 2));
 }
-   .painting-image {
+.painting-image {
    {% image page.specific.service_painting original as service_painting %}
   background-image: url("{{service_painting.url}}");
 }
