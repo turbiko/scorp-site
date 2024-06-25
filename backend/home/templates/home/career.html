@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static  wagtailimages_tags i18n%}
+{% load static wagtailimages_tags wagtailcore_tags i18n%}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -9,26 +9,31 @@
 
 {% block extra_style %}
 <style>
-    body {
-        min-width: 820px;
-    }
-    .painted-block {
-        min-height:600px;
-        overflow: visible;
-        background-size: auto;
-        align-items: flex-end;
-    }
-    .career-buttons-block {
-        width: min(750px, 45dvw);
-        margin-top: 200px;
-        min-height: 270px;
-        justify-content: center;
-    }
-      .painting-image {
-        {% image self.big_picture original as big_picture %}
-        background-image: url("{{ big_picture.url }}");
-        background-repeat: no-repeat;
-      }
+body {
+    min-width: 820px;
+}
+.painted-block {
+    min-height:600px;
+    overflow: visible;
+    background-size: auto;
+    align-items: flex-end;
+}
+.career-buttons-block {
+    width: min(750px, 45dvw);
+    margin-top: 200px;
+    min-height: 270px;
+    justify-content: end;
+}
+.painting-image {
+    {% image self.big_picture original as big_picture %}
+    background-image: url("{{ big_picture.url }}");
+    background-repeat: no-repeat;
+}
+a:visited {
+    color: var(--White);}
+a:hover {
+  text-decoration: none;
+}
     </style>
 {% endblock extra_style %}
 
@@ -56,7 +61,7 @@
         <div
           class="hero-button-shadow block-shadow hero-button margin-centered hero-button-home-git"
         >
-          <span class="hero-button-title">Send an aplication</span>
+          <a href="{% pageurl page.redirect_page %}" class="hero-button-title">{{page.button_text}}</a>
         </div>
         </div>
       </section>
