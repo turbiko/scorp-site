@@ -13,7 +13,9 @@
         height:600px;
     }
       .painting-image {
-        background-image: url("/static/images/production-painting.png");
+        {% image self.big_picture original as big_picture %}
+        background-image: url("{{ big_picture.url }}");
+        background-repeat: no-repeat;
       }
     </style>
 {% endblock extra_style %}
@@ -28,16 +30,17 @@
         </div>
       </section>
       <section class="painted-block painting-image">
+      </section>
 
-      </section>
-      <section class="career-section">
-        <div class="empty-block"></div>
-        <div class="career-buttons-block">
-            {% for career_title in page.career_titles.all %}
-            <div class="hero-button">{{career_title.name}}</div>
-            {% endfor %}
-        </div>
-      </section>
+        <section class="career-section">
+            <div class="empty-block"></div>
+            <div class="career-buttons-block">
+                {% for career_title in page.career_titles.all %}
+                <div class="hero-button">{{career_title.name}}</div>
+                {% endfor %}
+            </div>
+        </section>
+
         <section class="career-button-section  margin-centered">
             <div class="block-text">{{page.action_text}} →</div>
         <div

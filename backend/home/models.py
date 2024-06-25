@@ -314,9 +314,18 @@ class Career(Page):  # page with career oportunities list
     max_count_per_parent = 1
 
     action_text = models.CharField(max_length=200, blank=True, null=True)
+    big_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Intro top image')
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel('action_text'),
+        FieldPanel('big_picture'),
         InlinePanel('career_titles', label=_("Career positions")),
     ]
 
