@@ -59,6 +59,7 @@ main {
 .content-wrapper {
   width: min(100%, var(--max-width-content));
   min-width: var(--min-width-desktop);
+  padding-inline: 10px;
 }
 /* Header */
 header {
@@ -117,6 +118,7 @@ nav {
   max-width: var(--max-width-content);
   min-width: var(--min-width-desktop);
   margin-inline: auto;
+  padding-inline: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
