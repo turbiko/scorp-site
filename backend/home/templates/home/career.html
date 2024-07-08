@@ -20,7 +20,6 @@ body {
 }
 .career-buttons-block {
     width: min(750px, 45dvw);
-    margin-top: 200px;
     min-height: 270px;
     justify-content: end;
 }
@@ -46,7 +45,8 @@ a:hover {
           </div>
         </div>
       </section>
-      <section class="painted-block painting-image">
+      <section class="painted-block painting-image  block-shadow">
+      </section>
         <div class="career-section">
             <div class="empty-block"></div>
             <div class="career-buttons-block">
@@ -56,6 +56,7 @@ a:hover {
             </div>
         </div>
 
+
         <div class="career-button-section  margin-centered">
             <div class="block-text">{{page.action_text}} →</div>
         <div
@@ -64,9 +65,5 @@ a:hover {
           <a href="{% pageurl page.redirect_page %}" class="hero-button-title">{{page.button_text}}</a>
         </div>
         </div>
-      </section>
-
-
-
 
 {% endblock content %}
