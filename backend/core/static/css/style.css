@@ -1,7 +1,7 @@
 @font-face {
   font-family: "CrazyV1";
   font-style: normal;
-  src: local("CrazyV1"), url("CRAZYV1_.woff") format("woff");
+  src: local("CrazyV1"), url("./crazyv1.woff") format("woff");
 }
 @font-face {
   font-family: "Kyiv*Type Serif";
