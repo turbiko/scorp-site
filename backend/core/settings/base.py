@@ -8,10 +8,12 @@ from decouple import config
 from django.utils.translation import gettext_lazy as _
 
 
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 print(f"{BASE_DIR=}")
 
+BLOG_VERSION = config('BLOG_VERSION', default="0.0.0")
 ###
 # Production and debug modes. if check only debug for db selection, it switch and db
 # need debug sometimes and for production
