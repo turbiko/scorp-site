@@ -1,8 +1,9 @@
 # example .env file
+BLOG_VERSION=0.0.1
 DEBUG=True
-# prod mode use pgsql but if false - use sqlite
+# prod mode True use pgsql,  when false - use sqlite
 PROD_MODE=False
-SECRET_KEY=a_secret-string-many-chars-long-think-about-security
+SECRET_KEY=a_secret-string-many-chars-long-think-about-security-4iugh5dp_gid6shgpids
 ALLOWED_HOSTS=localhost, 127.0.0.1
 WAGTAILADMIN_BASE_URL=http://domain.tld
 
