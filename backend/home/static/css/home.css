@@ -51,7 +51,6 @@
   min-height: 651px;
   display: grid;
   place-items: center;
-
   padding: 85px 10px;
 }
 .partners-block {
@@ -60,6 +59,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 45px;
+  justify-content: space-evenly;
 }
 .painted-block {
   padding-top: 0;
