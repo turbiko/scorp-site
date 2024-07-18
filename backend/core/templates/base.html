@@ -49,7 +49,7 @@
       <div class="content-wrapper margin-centered flex-row-between">
         <a href="/{{ LANGUAGE_CODE }}">
             <div class="logo-header">
-              <img src="{% static 'img/logo.svg' %}" alt="" />
+              <img src="{% static 'img/logo.svg' %}" alt="" >
             </div>
         </a>
           <div class="menu-lang">
@@ -106,11 +106,11 @@
       <div class="content-wrapper margin-centered">
         <div class="footer">
           <div class="footer-logo">
-            <img src="{% static 'img/logo.svg' %}" alt="" />
+            <img src="{% static 'img/logo.svg' %}" alt="" >
           </div>
           <div class="footer-data flex-row-between">
             <div class="footer-copy">
-              &copy; {% now 'Y' %} Studio Animagrad <br />
+              &copy; {% now 'Y' %} Studio Animagrad <br>
               {% if settings.home.ContactDataSettings.get_contact_data.email  %}
               <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email}}">
                 {{settings.home.ContactDataSettings.get_contact_data.email}}
