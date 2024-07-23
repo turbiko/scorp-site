@@ -260,8 +260,11 @@ class About(Page):
         related_name='+',
         help_text=_('Intro top image')
     )
+    about_name = models.CharField(_('Name for about block'), max_length=50, blank=True, null=True)
+    about_text = RichTextField(_('About'))
 
     content_panels = Page.content_panels + [
+
         MultiFieldPanel([
             FieldPanel('big_picture'),
         ],
@@ -271,6 +274,8 @@ class About(Page):
             [InlinePanel("our_team", label=_("Our team"))],
             heading=_("Team members"),
         ),
+        FieldPanel('about_name'),
+        FieldPanel('about_text'),
     ]
 
     def __str__(self):

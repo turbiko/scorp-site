@@ -22,21 +22,6 @@
 </style>
 {% block extra_style %}
 <style>
-.intro-block {
-  background: url("/static/images/intro-bg.png") lightgray 50% / cover no-repeat;
-}
-.block3 {
-  background: url("/static/images/image3-11.png") lightgray 50% / cover no-repeat;
-}
-.trusted-block {
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%
-    ),
-    url("/static/images/trusted-by.png") lightgray 50% / cover no-repeat;
-}
-
 .stuff-card {
     flex: 0 0 25%; /* Ensures that each card takes exactly 25% of the slide */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -54,14 +39,13 @@ a:visited {
       <section class="section margin-centered">
         <div class="block-for-title">
           <div class="title-block margin-centered">
-            <span class="title-text">About us</span>
+            <span class="title-text">{{page.title}}</span>
           </div>
         </div>
         <div class="about-text-content margin-centered">
+          {{page.about_text|safe}}
           <p>
-            Animagrad studio was founded in 2012 as a part of FILM.UA Group and
-            has become one of the leading animation studios in Eastern Europe.
-            Our portfolio lists a number of successful products in 2D and 3D.
+            p
           </p>
           <p>
             Animagrad’s mission is about bringing Ukrainian animation into a new
