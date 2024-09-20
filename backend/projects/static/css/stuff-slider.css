@@ -176,7 +176,7 @@ overflow: hidden;
   font-style: normal;
   font-weight: 400;
   line-height: 1; /* 361.111% */
-  letter-spacing: 1.2em;
+  letter-spacing: 2.28px;
   text-transform: uppercase;
 }
 .stuff-card__text {
