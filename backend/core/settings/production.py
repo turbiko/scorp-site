@@ -1,5 +1,7 @@
 from .base import *
 
+from decouple import Csv
+
 import logging
 
 
@@ -8,12 +10,14 @@ logger.info("Loaded PRODUCTION settings.")
 
 print(f"Loaded PRODUCTION settings {DEBUG=}")
 
-ALLOWED_HOSTS = [
-    "scorp.dev.argentum.ua",
-    "10.1.100.173",
-    "127.0.0.1",
-    "localhost",
-]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+if not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = [
+        "scorp.dev.argentum.ua",
+        "10.1.100.175",
+        "127.0.0.1",
+        "localhost",
+    ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.dev.argentum.ua',
