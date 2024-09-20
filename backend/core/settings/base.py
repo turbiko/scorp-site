@@ -8,10 +8,8 @@ from decouple import config
 from django.utils.translation import gettext_lazy as _
 
 
-
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-print(f"{BASE_DIR=}")
 
 BLOG_VERSION = config('BLOG_VERSION', default="0.0.0")
 ###
@@ -20,10 +18,10 @@ BLOG_VERSION = config('BLOG_VERSION', default="0.0.0")
 ###
 DEBUG = config('DEBUG', default=False, cast=bool)
 PROD_MODE = config('PROD_MODE', default=False, cast=bool)
-print(f'base config: set DEBUG = {DEBUG}')
-print(f'base config: set PROD_MODE = {PROD_MODE}')
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# secret key generator https://django-secret-key-generator.netlify.app/  or
+# python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 SECRET_KEY = config("SECRET_KEY", "not-loaded-secret-key-ryu_zr&i&2ne6kXt9uib5oy8rca6ygb5tv!5hb#po-%%9hn2_43k")
 
 # Application definition
