@@ -19,6 +19,12 @@ docker-compose exec scorp python manage.py createsuperuser --settings=app.settin
 
 docker-compose up -d --build
 
+docker-compose restart
+
+docker-compose name for service
+docker-compose restart <service_name>
+
+
 ### docker commands
 
 sudo docker container ls
