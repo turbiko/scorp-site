@@ -2,7 +2,6 @@
 }
 
 .services-list {
-  width: 1420px;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
