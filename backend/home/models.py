@@ -186,6 +186,11 @@ class HomePage(Page):
         help_text=_('our services block background')
     )
     contactus_title = models.CharField(_('Name for contact us block'), max_length=50, blank=True, null=True)
+    services_title = models.CharField(_('services title'), max_length=255, default='Services')
+    button_get_in_touch_title = models.CharField(_('GET IN TOUCH'), max_length=255, default='GET IN TOUCH')
+    button_get_in_touch_link = models.URLField(default="")
+    button_skip_intro_title = models.CharField(_('skip intro'), max_length=255, default='skip intro')
+    button_skip_intro_link = models.URLField(default="")
 
     content_panels = Page.content_panels + [
         FieldPanel('big_picture'),
@@ -197,8 +202,11 @@ class HomePage(Page):
         FieldPanel('partners_title'),
         FieldPanel('partners_background'),
         InlinePanel('partner_logo', label=_("Partners logotypes")),
+        FieldPanel('services_title'),
         FieldPanel('services_background'),
         FieldPanel('contactus_title'),
+        FieldPanel('button_get_in_touch_title'),
+        FieldPanel('button_get_in_touch_link'),
     ]
 
     def get_context(self, request):
