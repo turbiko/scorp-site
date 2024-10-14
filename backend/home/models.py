@@ -207,6 +207,8 @@ class HomePage(Page):
         FieldPanel('contactus_title'),
         FieldPanel('button_get_in_touch_title'),
         FieldPanel('button_get_in_touch_link'),
+        FieldPanel('button_skip_intro_title'),
+        FieldPanel('button_skip_intro_link'),
     ]
 
     def get_context(self, request):
