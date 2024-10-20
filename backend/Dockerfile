@@ -20,6 +20,7 @@ RUN pip install "gunicorn==20.0.4"
 
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+RUN django-admin compilemessages
 
 # Postgres Entrypoint
 #COPY entrypoint.sh /usr/src/app/entrypoint.sh
