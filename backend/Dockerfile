@@ -22,16 +22,6 @@ RUN pip install "gunicorn==20.0.4"
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the correct working directory where Django project exists
-WORKDIR $DockerHOME/your_project_name  # Change this to the directory where manage.py is located
-
-# Compile translations
-RUN django-admin compilemessages
-
-# Set the working directory back to the app root
-WORKDIR $DockerHOME
-
-
 # Postgres Entrypoint
 #COPY entrypoint.sh /usr/src/app/entrypoint.sh
 COPY entrypoint.prod.sh /usr/src/app/entrypoint.prod.sh
