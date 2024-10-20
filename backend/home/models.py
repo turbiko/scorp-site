@@ -31,7 +31,10 @@ class Contact(models.Model):  # contact form
     message = models.TextField(verbose_name=_('Message'))
 
     def __str__(self):
-        return f"Contact {self.name}"
+        return f"Contact: \"{self.name} <{self.email}>\""
+
+    def __repr__(self):
+        return f"Contact(name={self.name}, email={self.email}, message={self.message})"
 
 
 class CareerContact(models.Model):  # career contact form
@@ -191,6 +194,8 @@ class HomePage(Page):
     button_get_in_touch_link = models.URLField(default="")
     button_skip_intro_title = models.CharField(_('skip intro'), max_length=255, default='skip intro')
     button_skip_intro_link = models.URLField(default="")
+    button_send_message_title = models.CharField(_('Send message'), max_length=255, default='Send message')
+    for_requests = models.CharField(_('for requests'), max_length=255, default='for requests')
 
     content_panels = Page.content_panels + [
         FieldPanel('big_picture'),
@@ -209,6 +214,8 @@ class HomePage(Page):
         FieldPanel('button_get_in_touch_link'),
         FieldPanel('button_skip_intro_title'),
         FieldPanel('button_skip_intro_link'),
+        FieldPanel('button_send_message_title'),
+        FieldPanel('for_requests'),
     ]
 
     def get_context(self, request):

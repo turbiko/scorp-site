@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "wagtail.admin",
     "wagtail",
     # 'wagtail_modeltranslation',
-    # 'modeltranslation',
+    'modeltranslation',
     # 'wagtail_modeltranslation.makemigrations',
     # 'wagtail_modeltranslation.migrate',
     "wagtail_localize",
