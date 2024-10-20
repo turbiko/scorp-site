@@ -11,7 +11,8 @@ ENV PYTHONUNBUFFERED 1
 # Install server packages
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev libffi-dev openssl-dev \
-    && apk add jpeg-dev libwebp-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev libxml2-dev libxslt-dev libxml2
+    && apk add jpeg-dev libwebp-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev libxml2-dev libxslt-dev libxml2 \
+    && apk add gettext  
 
 # Install python packages
 RUN pip install --no-cache-dir --upgrade pip
