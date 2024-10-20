@@ -164,6 +164,10 @@ USE_L10N = True
 
 USE_TZ = False
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 WAGTAILLOCALIZE_MODELTRANSLATION_SYNC_TREE = True
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 # Static files (CSS, JavaScript, Images)

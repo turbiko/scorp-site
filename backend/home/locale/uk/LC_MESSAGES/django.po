@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-21 01:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: .\home\forms.py:6 .\home\forms.py:8 .\home\models.py:29 .\home\models.py:41
+#: .\home\models.py:42
+msgid "Name"
+msgstr "Ім'я"
+
+#: .\home\forms.py:11 .\home\forms.py:31
+msgid "Email"
+msgstr "Емейл"
+
+#: .\home\forms.py:15 .\home\forms.py:17 .\home\forms.py:76 .\home\forms.py:78
+#: .\home\models.py:31
+msgid "Message"
+msgstr "Повідомлення"
+
+#: .\home\forms.py:21 .\home\forms.py:23
+msgid "First name"
+msgstr "Ім'я"
+
+#: .\home\forms.py:25 .\home\forms.py:27
+msgid "Last name"
+msgstr "Прізвище"
+
+#: .\home\forms.py:36 .\home\forms.py:38
+msgid "Country residence"
+msgstr "Громадянство"
+
+#: .\home\forms.py:40 .\home\forms.py:42
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\home\forms.py:44 .\home\forms.py:46 .\home\models.py:47
+msgid "nationality"
+msgstr "Національність"
+
+#: .\home\forms.py:48 .\home\forms.py:50
+msgid "Main skill"
+msgstr "Основна навичка"
+
+#: .\home\forms.py:52 .\home\forms.py:54 .\home\models.py:49
+msgid "secondary skill"
+msgstr "Друга навичка"
+
+#: .\home\forms.py:56 .\home\forms.py:58 .\home\models.py:50
+msgid "other skill"
+msgstr "Інші навички"
+
+#: .\home\forms.py:60 .\home\forms.py:62 .\home\models.py:51
+msgid "software"
+msgstr "Програми"
+
+#: .\home\forms.py:64 .\home\forms.py:66 .\home\models.py:52
+msgid "availability"
+msgstr "доступність"
+
+#: .\home\forms.py:68 .\home\forms.py:70 .\home\models.py:53
+msgid "linkedin"
+msgstr "linkedin"
+
+#: .\home\forms.py:72 .\home\forms.py:74
+msgid "website/reel"
+msgstr "website"
+
+#: .\home\models.py:30 .\home\models.py:43
+msgid "Email address"
+msgstr "Емейл"
+
+#: .\home\models.py:44
+msgid "Birthday"
+msgstr "День народження"
+
+#: .\home\models.py:45
+msgid "country of residence"
+msgstr "Громадянство"
+
+#: .\home\models.py:46
+msgid "phone"
+msgstr "телефон"
+
+#: .\home\models.py:48
+msgid "main skill"
+msgstr "основна навичка"
+
+#: .\home\models.py:54
+msgid "website reel"
+msgstr "website"
+
+#: .\home\models.py:55
+msgid "message about"
+msgstr "Про себе"
+
+#: .\home\models.py:63
+msgid "Social net name"
+msgstr "Соціальні мережі"
+
+#: .\home\models.py:64
+msgid "Upload logotype"
+msgstr "Завантажити логотип"
+
+#: .\home\models.py:65
+msgid "URL to social network account"
+msgstr "URL до профіля соц мережі"
+
+#: .\home\models.py:107
+msgid "Social site settings"
+msgstr "Налаштування соціальних мереж"
+
+#: .\home\models.py:113
+msgid "Contact data"
+msgstr "Контакти"
+
+#: .\home\models.py:120
+msgid "Contact settings"
+msgstr "Налаштування контактів"
+
+#: .\home\models.py:133
+msgid "Partner name, URL and logotype"
+msgstr "Назва, посилання та логотип"
+
+#: .\home\models.py:153 .\home\models.py:163 .\home\models.py:252
+#: .\home\models.py:278 .\home\models.py:325 .\home\models.py:354
+msgid "Intro top image"
+msgstr "Малюнок введення"
+
+#: .\home\models.py:155 .\home\models.py:280
+msgid "Name for about block"
+msgstr "Назва блоку про нас"
+
+#: .\home\models.py:156 .\home\models.py:281
+msgid "About"
+msgstr "Про нас"
+
+#: .\home\models.py:171
+msgid "empty block background"
+msgstr "Фон пустого блоку"
+
+#: .\home\models.py:173
+msgid "Name for projects block"
+msgstr "Назва для блоку проєктів"
+
+#: .\home\models.py:174
+msgid "Name for partners block"
+msgstr "Назва для блоку партнерів"
+
+#: .\home\models.py:181
+msgid "Partnets block background"
+msgstr "Фон блоку партнерів"
+
+#: .\home\models.py:189
+msgid "our services block background"
+msgstr "фон блоку наші послуги"
+
+#: .\home\models.py:191
+msgid "Name for contact us block"
+msgstr "ЗАголовок дл блоку контакти"
+
+#: .\home\models.py:192
+msgid "services title"
+msgstr "Заголовок послуг"
+
+#: .\home\models.py:193
+msgid "GET IN TOUCH"
+msgstr "Зв'язатися з нами"
+
+#: .\home\models.py:195
+msgid "skip intro"
+msgstr "пропустити заставку"
+
+#: .\home\models.py:197
+msgid "Send message"
+msgstr "Надіслати повідомлення"
+
+#: .\home\models.py:198
+msgid "for requests"
+msgstr "для запитів"
+
+#: .\home\models.py:209
+msgid "Partners logotypes"
+msgstr "Логотипи партнерів"
+
+#: .\home\models.py:288
+msgid "About Options"
+msgstr "Налаштування Про нас"
+
+#: .\home\models.py:291
+msgid "Our team"
+msgstr "Наша команда"
+
+#: .\home\models.py:292
+msgid "Team members"
+msgstr "Наші люди"
+
+#: .\home\models.py:346
+msgid "Select a page to redirect to"
+msgstr "Оберіть сторінку для переадресації"
+
+#: .\home\models.py:362
+msgid "Career positions"
+msgstr "Посади"
+
+#: .\home\models.py:378
+msgid "Page top image"
+msgstr "Верхній малюнок сторінки"
+
+#: .\home\views.py:28 .\home\views.py:55
+msgid "Message saved!"
+msgstr "Повідомлення збережено"
+
+#: .\home\views.py:33 .\home\views.py:60
+msgid "Error, form data not valid. Message not saved."
+msgstr "Помилка, перевірте введені данні. Повідомлення не збережено"

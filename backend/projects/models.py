@@ -47,26 +47,27 @@ class Project(Page):
     template = 'projects' + os.sep + 'project-page.html'
     parent_page_types = ['projects.Projects']
 
-    category = models.TextField(blank=True, max_length=100)
-    genre = models.TextField(blank=True, max_length=100)
-    genres = models.ManyToManyField('projects.Genre', blank=True)
-    audience = models.TextField(blank=True, max_length=100)
-    running_time = models.TextField(blank=True, max_length=100)
-    format = models.TextField(blank=True, max_length=100)
-    technique = models.TextField(blank=True, max_length=100)
-    sound = models.TextField(blank=True, max_length=100)
-    languages = models.TextField(blank=True, max_length=100)
-    producers = models.TextField(blank=True, max_length=100)
-    director = models.TextField(blank=True, max_length=100)
-    screenplay = models.TextField(blank=True, max_length=100)
-    short_text = models.TextField(blank=True, max_length=6500)
-    big_text = RichTextField(blank=True, max_length=62000)
+    category = models.TextField(_('category'), blank=True, max_length=100)
+    genre = models.TextField(_('genre'), blank=True, max_length=100)
+    genres = models.ManyToManyField('projects.Genre', blank=True, verbose_name=_('genres'))
+    audience = models.TextField(_('audience'), blank=True, max_length=100)
+    running_time = models.TextField(_('running time'), blank=True, max_length=100)
+    format = models.TextField(_('format'), blank=True, max_length=100)
+    technique = models.TextField(_('technique'), blank=True, max_length=100)
+    sound = models.TextField(_('sound'), blank=True, max_length=100)
+    languages = models.TextField(_('Languages'), blank=True, max_length=100)
+    producers = models.TextField(_('producers'), blank=True, max_length=100)
+    director = models.TextField(_('director'), blank=True, max_length=100)
+    screenplay = models.TextField(_('screenplay'), blank=True, max_length=100)
+    short_text = models.TextField(_('short text'), blank=True, max_length=6500)
+    big_text = RichTextField(_('big text'), blank=True, max_length=62000)
     big_picture = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        verbose_name=_('project top image'),
         help_text=_('project top image')
     )
     slider_image = models.ForeignKey(
@@ -75,26 +76,27 @@ class Project(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        verbose_name=_('project image for slider'),
         help_text=_('project image for slider')
     )
     content_panels = Page.content_panels + [
-        FieldPanel('category'),
-        FieldPanel('genre'),
-        FieldPanel('genres'),  # try translations
-        InlinePanel('project_genres', label=_("project genres")),
-        FieldPanel('running_time'),
-        FieldPanel('audience'),
-        FieldPanel('format'),
-        FieldPanel('technique'),
-        FieldPanel('sound'),
-        FieldPanel('languages'),
-        FieldPanel('producers'),
-        FieldPanel('director'),
-        FieldPanel('screenplay'),
-        FieldPanel('short_text'),
-        FieldPanel('big_text'),
-        FieldPanel('big_picture'),
-        FieldPanel('slider_image'),
+        FieldPanel('category', heading=_('Category')),
+        # FieldPanel('genre'),
+        # FieldPanel('genres'),  # try translations
+        InlinePanel('project_genres', label=_("Project Genres")),
+        FieldPanel('running_time', heading=_('Running Time')),
+        FieldPanel('audience', heading=_('Audience')),
+        FieldPanel('format', heading=_('Format')),
+        FieldPanel('technique', heading=_('Technique')),
+        FieldPanel('sound', heading=_('Sound')),
+        FieldPanel('languages', heading=_('Languages')),
+        FieldPanel('producers', heading=_('Producers')),
+        FieldPanel('director', heading=_('Director')),
+        FieldPanel('screenplay', heading=_('Screenplay')),
+        FieldPanel('short_text', heading=_('Short Description')),
+        FieldPanel('big_text', heading=_('Detailed Description')),
+        FieldPanel('big_picture', heading=_('Main Image')),
+        FieldPanel('slider_image', heading=_('Slider Image')),
     ]
 
     def __str__(self):

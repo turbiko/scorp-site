@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-21 01:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: .\projects\models.py:50
+msgid "category"
+msgstr "категорія"
+
+#: .\projects\models.py:51
+msgid "genre"
+msgstr "Жанр"
+
+#: .\projects\models.py:52
+msgid "genres"
+msgstr "жанри"
+
+#: .\projects\models.py:53
+msgid "audience"
+msgstr "аудиторія"
+
+#: .\projects\models.py:54
+msgid "running time"
+msgstr "тривалість"
+
+#: .\projects\models.py:55
+msgid "format"
+msgstr "формат"
+
+#: .\projects\models.py:56
+msgid "technique"
+msgstr "технологія"
+
+#: .\projects\models.py:57
+msgid "sound"
+msgstr "звук"
+
+#: .\projects\models.py:58 .\projects\models.py:92
+msgid "Languages"
+msgstr "Мова"
+
+#: .\projects\models.py:59
+msgid "producers"
+msgstr "Продюсери"
+
+#: .\projects\models.py:60
+msgid "director"
+msgstr "директор"
+
+#: .\projects\models.py:61
+msgid "screenplay"
+msgstr "сценарій"
+
+#: .\projects\models.py:62
+msgid "short text"
+msgstr "короткий текст"
+
+#: .\projects\models.py:63
+msgid "big text"
+msgstr "великий текст"
+
+#: .\projects\models.py:70 .\projects\models.py:71
+msgid "project top image"
+msgstr "Верхній малюнок проєкту"
+
+#: .\projects\models.py:79 .\projects\models.py:80
+msgid "project image for slider"
+msgstr "малюнок проєкту для слайдеру"
+
+#: .\projects\models.py:83 .\projects\templates\projects\project-page.html:32
+msgid "Category"
+msgstr "категорія"
+
+#: .\projects\models.py:86
+msgid "Project Genres"
+msgstr "Жанри проєкту"
+
+#: .\projects\models.py:87
+msgid "Running Time"
+msgstr "Тривалість"
+
+#: .\projects\models.py:88 .\projects\templates\projects\project-page.html:46
+msgid "Audience"
+msgstr "Аудиторія"
+
+#: .\projects\models.py:89 .\projects\templates\projects\project-page.html:50
+msgid "Format"
+msgstr "Формат"
+
+#: .\projects\models.py:90 .\projects\templates\projects\project-page.html:54
+msgid "Technique"
+msgstr "Технологія"
+
+#: .\projects\models.py:91 .\projects\templates\projects\project-page.html:58
+msgid "Sound"
+msgstr "Звук"
+
+#: .\projects\models.py:93 .\projects\templates\projects\project-page.html:66
+msgid "Producers"
+msgstr "Продюсер"
+
+#: .\projects\models.py:94 .\projects\templates\projects\project-page.html:70
+msgid "Director"
+msgstr "Директор"
+
+#: .\projects\models.py:95 .\projects\templates\projects\project-page.html:74
+msgid "Screenplay"
+msgstr "Сценарій"
+
+#: .\projects\models.py:96
+msgid "Short Description"
+msgstr "Короткий опис"
+
+#: .\projects\models.py:97
+msgid "Detailed Description"
+msgstr "Детальний опис"
+
+#: .\projects\models.py:98
+msgid "Main Image"
+msgstr ""
+
+#: .\projects\models.py:99
+msgid "Slider Image"
+msgstr "Малюнок слайдеру"
+
+#: .\projects\models.py:150
+msgid "left image"
+msgstr "Лівий малюнок"
+
+#: .\projects\models.py:158
+msgid "right image"
+msgstr "Правий малюнок"
+
+#: .\projects\templates\projects\includes\pagination.html:13
+msgid "First page"
+msgstr "Перша сторінка"
+
+#: .\projects\templates\projects\includes\pagination.html:17
+msgid "Previous page"
+msgstr "Оопередня сторінка"
+
+#: .\projects\templates\projects\includes\pagination.html:93
+msgid "Next page"
+msgstr "Наступна сторінка"
+
+#: .\projects\templates\projects\includes\pagination.html:96
+msgid "Last page"
+msgstr "Остання сторінка"
+
+#: .\projects\templates\projects\project-page.html:36
+msgid "Genre"
+msgstr "Жанр"
+
+#: .\projects\templates\projects\project-page.html:42
+msgid "Running time"
+msgstr "Тривалість"
+
+#: .\projects\templates\projects\project-page.html:62
+msgid "Language"
+msgstr "Мова"

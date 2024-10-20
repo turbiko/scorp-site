@@ -50,3 +50,14 @@ source ./venv/bin/activatepip  install -r requirements.txt
 ### pagination
 https://learnwagtail.com/tutorials/how-to-paginate-your-wagtail-pages/
 https://www.youtube.com/watch?v=NjTF3kfHdm4&ab_channel=HARDCODD ЛУЧШАЯ ПАГИНАЦИЯ
+
+
+### i18n
+```bash
+mkdir -p your_app_name/locale
+```
+
+```bash
+django-admin makemessages -l uk
+django-admin compilemessages
+```
