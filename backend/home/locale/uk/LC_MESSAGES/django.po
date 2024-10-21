@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 01:15+0200\n"
+"POT-Creation-Date: 2024-10-22 00:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: .\home\forms.py:6 .\home\forms.py:8 .\home\models.py:29 .\home\models.py:41
 #: .\home\models.py:42
 msgid "Name"
@@ -187,7 +188,7 @@ msgstr "Зв'язатися з нами"
 msgid "skip intro"
 msgstr "пропустити заставку"
 
-#: .\home\models.py:197
+#: .\home\models.py:197 .\home\templates\home\contactus.html:133
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
@@ -222,6 +223,17 @@ msgstr "Посади"
 #: .\home\models.py:378
 msgid "Page top image"
 msgstr "Верхній малюнок сторінки"
+
+#: .\home\templates\home\career-contact-form.html:112
+msgid "Send"
+msgstr "Відправити"
+
+#: .\home\templates\home\career-form.html:56
+#: .\home\templates\home\contactus.html:56
+#, fuzzy
+#| msgid "for requests"
+msgid "For requests"
+msgstr "для запитів"
 
 #: .\home\views.py:28 .\home\views.py:55
 msgid "Message saved!"

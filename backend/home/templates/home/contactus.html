@@ -53,7 +53,7 @@
               {% endif %}
               <p>&nbsp;</p>
               {% if settings.home.ContactDataSettings.get_contact_data.email_requests  %}
-              <p>For requests:</p>
+              <p>{% translate "For requests" %}:</p>
               <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email_requests}}">
                 {{settings.home.ContactDataSettings.get_contact_data.email_requests}}
               </a>
@@ -130,7 +130,7 @@
             <button type="submit"
               class="hero-button-shadow block-shadow hero-button message-button"
             >
-              <span class="hero-button-title">Send message</span>
+              <span class="hero-button-title">{% translate "Send message" %}</span>
             </button>
             </form>
           </div>

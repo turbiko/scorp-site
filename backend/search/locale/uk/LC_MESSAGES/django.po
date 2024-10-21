@@ -20,27 +20,18 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: .\search\templates\search\search.html:6
+msgid "Search page"
+msgstr "Сторінка пошуку"
 
-#: .\core\settings\base.py:153
-msgid "English"
-msgstr "Англійська"
+#: .\search\templates\search\search.html:9
+msgid "Search"
+msgstr "Пошук"
 
-#: .\core\settings\base.py:154
-msgid "Ukrainian"
-msgstr "Українська"
+#: .\search\templates\search\search.html:29
+msgid "Previous"
+msgstr "Попередній"
 
-#: .\core\templates\404.html:69
-msgid "Page not found"
-msgstr "Сторінка зе знайдена"
-
-#: .\core\templates\500.html:9
-msgid "Internal server error"
-msgstr "Внутрішня помилка серверу"
-
-#: .\core\templates\500.html:11
-msgid "Sorry, there seems to be an error"
-msgstr "Вибачте, здається, сталась помилка"
-
-#: .\core\templates\500.html:11
-msgid "Please try again soon"
-msgstr "Будь ласка, повторіть запит пізніше"
+#: .\search\templates\search\search.html:33
+msgid "Next"
+msgstr "Наступний"

@@ -22,7 +22,7 @@ msgstr ""
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 #: .\ournews\models.py:28
 msgid "news date"
-msgstr ""
+msgstr "Дата новини"
 
 #: .\ournews\models.py:37
 msgid "news top image"
