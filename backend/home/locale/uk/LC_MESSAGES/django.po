@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 00:39+0200\n"
+"POT-Creation-Date: 2024-10-24 01:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,7 +146,7 @@ msgid "Career Title"
 msgstr "Посади"
 
 #: .\home\models.py:157 .\home\models.py:167 .\home\models.py:256
-#: .\home\models.py:282 .\home\models.py:329 .\home\models.py:358
+#: .\home\models.py:282 .\home\models.py:330 .\home\models.py:360
 msgid "Intro top image"
 msgstr "Малюнок введення"
 
@@ -198,7 +198,7 @@ msgstr "пропустити заставку"
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
-#: .\home\models.py:202
+#: .\home\models.py:202 .\home\models.py:323
 msgid "for requests"
 msgstr "для запитів"
 
@@ -218,15 +218,15 @@ msgstr "Наша команда"
 msgid "Team members"
 msgstr "Наші люди"
 
-#: .\home\models.py:350
+#: .\home\models.py:352
 msgid "Select a page to redirect to"
 msgstr "Оберіть сторінку для переадресації"
 
-#: .\home\models.py:366
+#: .\home\models.py:368
 msgid "Career positions"
 msgstr "Посади"
 
-#: .\home\models.py:382
+#: .\home\models.py:384
 msgid "Page top image"
 msgstr "Верхній малюнок сторінки"
 
@@ -235,7 +235,6 @@ msgid "Send"
 msgstr "Відправити"
 
 #: .\home\templates\home\career-form.html:56
-#: .\home\templates\home\contactus.html:56
 #, fuzzy
 #| msgid "for requests"
 msgid "For requests"
