@@ -320,6 +320,7 @@ class ContactPage(Page):
     parent_page_types = ['home.HomePage']
     max_count_per_parent = 1
 
+    for_requests = models.CharField(_('for requests'), max_length=255, default='for requests')
     big_picture = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -330,6 +331,7 @@ class ContactPage(Page):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel('for_requests'),
         FieldPanel('big_picture'),
     ]
 

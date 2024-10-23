@@ -53,7 +53,7 @@
               {% endif %}
               <p>&nbsp;</p>
               {% if settings.home.ContactDataSettings.get_contact_data.email_requests  %}
-              <p>{% translate "For requests" %}:</p>
+              <p>{{page.for_requests}}:</p>
               <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email_requests}}">
                 {{settings.home.ContactDataSettings.get_contact_data.email_requests}}
               </a>
