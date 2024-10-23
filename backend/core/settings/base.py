@@ -40,12 +40,10 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail",
-    # 'wagtail_modeltranslation',
     'modeltranslation',
-    # 'wagtail_modeltranslation.makemigrations',
-    # 'wagtail_modeltranslation.migrate',
     "wagtail_localize",
     "wagtail_localize.locales",
+    # 'wagtail_localize.modeltranslation',  # Інтеграція з django-modeltranslation
     'wagtail.contrib.settings',  # site settings https://docs.wagtail.org/en/v3.0.1/reference/contrib/settings.html
     "wagtail_modeladmin",  # >5.1  https://wagtailmenus.readthedocs.io/en/stable/installation.html
     "modelcluster",

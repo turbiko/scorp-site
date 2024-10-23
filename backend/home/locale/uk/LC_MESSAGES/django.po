@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-22 00:41+0200\n"
+"POT-Creation-Date: 2024-10-24 00:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,88 +139,94 @@ msgstr "Налаштування контактів"
 msgid "Partner name, URL and logotype"
 msgstr "Назва, посилання та логотип"
 
-#: .\home\models.py:153 .\home\models.py:163 .\home\models.py:252
-#: .\home\models.py:278 .\home\models.py:325 .\home\models.py:354
+#: .\home\models.py:142
+#, fuzzy
+#| msgid "Career positions"
+msgid "Career Title"
+msgstr "Посади"
+
+#: .\home\models.py:157 .\home\models.py:167 .\home\models.py:256
+#: .\home\models.py:282 .\home\models.py:329 .\home\models.py:358
 msgid "Intro top image"
 msgstr "Малюнок введення"
 
-#: .\home\models.py:155 .\home\models.py:280
+#: .\home\models.py:159 .\home\models.py:284
 msgid "Name for about block"
 msgstr "Назва блоку про нас"
 
-#: .\home\models.py:156 .\home\models.py:281
+#: .\home\models.py:160 .\home\models.py:285
 msgid "About"
 msgstr "Про нас"
 
-#: .\home\models.py:171
+#: .\home\models.py:175
 msgid "empty block background"
 msgstr "Фон пустого блоку"
 
-#: .\home\models.py:173
+#: .\home\models.py:177
 msgid "Name for projects block"
 msgstr "Назва для блоку проєктів"
 
-#: .\home\models.py:174
+#: .\home\models.py:178
 msgid "Name for partners block"
 msgstr "Назва для блоку партнерів"
 
-#: .\home\models.py:181
+#: .\home\models.py:185
 msgid "Partnets block background"
 msgstr "Фон блоку партнерів"
 
-#: .\home\models.py:189
+#: .\home\models.py:193
 msgid "our services block background"
 msgstr "фон блоку наші послуги"
 
-#: .\home\models.py:191
+#: .\home\models.py:195
 msgid "Name for contact us block"
 msgstr "ЗАголовок дл блоку контакти"
 
-#: .\home\models.py:192
+#: .\home\models.py:196
 msgid "services title"
 msgstr "Заголовок послуг"
 
-#: .\home\models.py:193
+#: .\home\models.py:197
 msgid "GET IN TOUCH"
 msgstr "Зв'язатися з нами"
 
-#: .\home\models.py:195
+#: .\home\models.py:199
 msgid "skip intro"
 msgstr "пропустити заставку"
 
-#: .\home\models.py:197 .\home\templates\home\contactus.html:133
+#: .\home\models.py:201 .\home\templates\home\contactus.html:133
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
-#: .\home\models.py:198
+#: .\home\models.py:202
 msgid "for requests"
 msgstr "для запитів"
 
-#: .\home\models.py:209
+#: .\home\models.py:213
 msgid "Partners logotypes"
 msgstr "Логотипи партнерів"
 
-#: .\home\models.py:288
+#: .\home\models.py:292
 msgid "About Options"
 msgstr "Налаштування Про нас"
 
-#: .\home\models.py:291
+#: .\home\models.py:295
 msgid "Our team"
 msgstr "Наша команда"
 
-#: .\home\models.py:292
+#: .\home\models.py:296
 msgid "Team members"
 msgstr "Наші люди"
 
-#: .\home\models.py:346
+#: .\home\models.py:350
 msgid "Select a page to redirect to"
 msgstr "Оберіть сторінку для переадресації"
 
-#: .\home\models.py:362
+#: .\home\models.py:366
 msgid "Career positions"
 msgstr "Посади"
 
-#: .\home\models.py:378
+#: .\home\models.py:382
 msgid "Page top image"
 msgstr "Верхній малюнок сторінки"
 
@@ -234,6 +240,12 @@ msgstr "Відправити"
 #| msgid "for requests"
 msgid "For requests"
 msgstr "для запитів"
+
+#: .\home\templates\home\home_page.html:194
+#, fuzzy
+#| msgid "services title"
+msgid "Services"
+msgstr "Заголовок послуг"
 
 #: .\home\views.py:28 .\home\views.py:55
 msgid "Message saved!"

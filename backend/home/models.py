@@ -138,6 +138,10 @@ class CareerTitles(Orderable):
     page = ParentalKey('wagtailcore.Page', related_name='career_titles')
     name = models.CharField(max_length=150, blank=True, null=True)
 
+    panels = [
+        FieldPanel('name', heading=_('Career Title')),
+    ]
+
 
 class HomePage(Page):
     max_count_per_parent = 1
