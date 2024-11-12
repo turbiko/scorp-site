@@ -1,6 +1,7 @@
 :root {
   --Black: #000;
 }
+h3 { text-transform: capitalize; }
 .project-painting {
   height: 1080px;
   background-repeat: no-repeat;
