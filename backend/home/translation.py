@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import ContactData, ContactDataSettings, CareerTitles
+from .models import ContactData, ContactDataSettings, CareerTitles, OurTeam
 
 
 @register(ContactData)
@@ -15,3 +15,7 @@ class ContactDataSettingsTranslationOptions(TranslationOptions):
 @register(CareerTitles)
 class CareerTitlesTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+@register(OurTeam)
+class OurTeamTranslationOptions(TranslationOptions):
+    fields = ('position', 'name', 'last_name',)
