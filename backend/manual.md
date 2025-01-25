@@ -1,4 +1,4 @@
-# server configuration
+# server configuration, fixed for project
 - Ubuntu
 - nginx on host
 - docker
@@ -8,6 +8,19 @@
 - python 3.11
 - Wagtail 6.1.1 (Django framework as dependency)
 - gunicorn
+
+### virtualenv python version 3.11 (for example)
+apt install python3.11-venv
+python3.12 -m venv venv
+pip freeze > requirements.txt
+source ./venv/bin/activatepip  install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py collectstatic
+gunicorn core.wsgi:application -b :8081  --workers=5   --timeout=190 --graceful-timeout=100 --log-level=DEBUG
+
+
 
 ## Docker configuration
 
