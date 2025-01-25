@@ -18,7 +18,7 @@ if not ALLOWED_HOSTS:
         "127.0.0.1",
         "localhost",
     ]
-
+print(f"Allowed hosts prod:{ALLOWED_HOSTS}")
 CSRF_TRUSTED_ORIGINS = [
     'https://*.dev.argentum.ua',
     'http://10.1.100.173',

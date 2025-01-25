@@ -21,7 +21,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
 ]
-
+print(f"Allowed hosts dev:{ALLOWED_HOSTS}")
 CSRF_TRUSTED_ORIGINS = [
     'https://*.svitlo.tv',
     'http://10.1.100.173',
