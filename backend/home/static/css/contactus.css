@@ -1,9 +1,11 @@
+/* Desktop (1224px and up) */
+
 .contact-us {
   display: grid;
   place-items: center;
 }
 .contact-container {
-  width: 1010px;
+  width: 100%;
 }
 .contacts-wrapper {
   display: flex;
@@ -41,7 +43,7 @@
   justify-content: space-between;
 }
 .input-block {
-  width: 536px;
+  width: 100%;
   height: 80px;
   flex-shrink: 0;
 }
@@ -52,7 +54,7 @@
 }
 .contact-input {
   display: flex;
-  width: 530px;
+  width: 100%;
   height: 55px;
 
   align-items: center;
@@ -82,3 +84,12 @@
 .message-button {
   width: 70%;
 }
+
+/* TABLET (1024px and below) */
+@media (max-width: 1024px) {}
+
+/* MOBILE (768px and below) */
+@media (max-width: 768px) {}
+
+/* SMALL MOBILE (480px and below) */
+@media (max-width: 480px) {}

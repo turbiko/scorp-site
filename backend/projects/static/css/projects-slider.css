@@ -1,3 +1,5 @@
+/* Desktop (1224px and up) */
+
 /* SLIDER */
 .slider_container {
   position: relative;
@@ -173,3 +175,12 @@
     6px 70px 54px 0px rgba(0, 0, 0, 0.46), 3px 40px 40px 0px rgba(0, 0, 0, 0.79),
     1px 10px 22px 0px rgba(0, 0, 0, 0.91);
 }
+
+/* TABLET (1024px and below) */
+@media (max-width: 1024px) {}
+
+/* MOBILE (768px and below) */
+@media (max-width: 768px) {}
+
+/* SMALL MOBILE (480px and below) */
+@media (max-width: 480px) {}

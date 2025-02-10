@@ -1,3 +1,5 @@
+/* Desktop (1224px and up) */
+
 @font-face {
   font-family: "CrazyV1";
   font-style: normal;
@@ -13,9 +15,11 @@
 :root {
   --max-width-screen: 1920px;
   --max-width-content: 1550px;
-  --max-width-content: 1550px;
   --min-width-desktop: 768px;
   --body-background: #383636;
+  --max-width-tablets-landscape: 1024px;
+  --max-width-tablets-portrait: 768px;
+
   --Gray-BG: #383637;
   --Text-color: #000;
   --White: #fff;
@@ -253,3 +257,12 @@ nav {
   background-position: center top;
   background-size: 100% auto;
 }
+
+/* TABLET (1024px and below) */
+@media (max-width: 1024px) {}
+
+/* MOBILE (768px and below) */
+@media (max-width: 768px) {}
+
+/* SMALL MOBILE (480px and below) */
+@media (max-width: 480px) {}

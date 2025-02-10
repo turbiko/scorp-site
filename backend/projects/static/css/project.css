@@ -1,3 +1,5 @@
+/* Desktop (1224px and up) */
+
 :root {
   --Black: #000;
 }
@@ -83,3 +85,12 @@ h3 { text-transform: capitalize; }
   line-height: 32px;
   letter-spacing: 0.36px;
 }
+
+/* TABLET (1024px and below) */
+@media (max-width: 1024px) {}
+
+/* MOBILE (768px and below) */
+@media (max-width: 768px) {}
+
+/* SMALL MOBILE (480px and below) */
+@media (max-width: 480px) {}

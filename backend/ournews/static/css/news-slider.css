@@ -1,3 +1,5 @@
+/* Desktop (1224px and up) */
+
 /* SLIDER */
 .slider_container {
   position: relative;
@@ -173,3 +175,12 @@ letter-spacing: 1.046px;
     0px 45px 18px 0px rgba(0, 0, 0, 0.07), 0px 25px 15px 0px rgba(0, 0, 0, 0.24),
     0px 11px 11px 0px rgba(0, 0, 0, 0.41), 0px 3px 6px 0px rgba(0, 0, 0, 0.47);
 }
+
+/* TABLET (1024px and below) */
+@media (max-width: 1024px) {}
+
+/* MOBILE (768px and below) */
+@media (max-width: 768px) {}
+
+/* SMALL MOBILE (480px and below) */
+@media (max-width: 480px) {}
