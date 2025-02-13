@@ -92,4 +92,8 @@
 @media (max-width: 768px) {}
 
 /* SMALL MOBILE (480px and below) */
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .contact-container {
+    width: auto;
+  }
+}

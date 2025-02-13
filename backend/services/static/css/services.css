@@ -29,8 +29,6 @@
 /* --- */
 .painting-image {
   background-repeat: no-repeat;
-  background-size: cover;
-
 }
 main .services {
   display: grid;
@@ -56,8 +54,19 @@ main .services {
   width: min(50dvw, calc(var(--max-width-screen) / 2));
 }
 
+
+
+@media (min-width: 1025px) {
+    .painting-image {
+  background-size: auto;
+}
+}
 /* TABLET (1024px and below) */
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+  .painting-image {
+  background-size: auto 100%;
+}
+}
 
 /* MOBILE (768px and below) */
 @media (max-width: 768px) {}

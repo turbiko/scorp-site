@@ -83,10 +83,16 @@
 }
 
 /* TABLET (1024px and below) */
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .services-list {
+    display: block;
+}
+}
 
 /* MOBILE (768px and below) */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+
+}
 
 /* SMALL MOBILE (480px and below) */
 @media (max-width: 480px) {}

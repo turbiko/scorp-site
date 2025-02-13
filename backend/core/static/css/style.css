@@ -262,7 +262,16 @@ nav {
 @media (max-width: 1024px) {}
 
 /* MOBILE (768px and below) */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  header {
+    /*display: none;*/
+}
+
+}
 
 /* SMALL MOBILE (480px and below) */
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .flex-row-between {
+    flex-direction: column;
+  }
+}

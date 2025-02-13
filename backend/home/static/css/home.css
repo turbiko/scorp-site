@@ -10,8 +10,7 @@
   flex-shrink: 0;
   overflow: hidden;
 }
-.intro-button-block {
-  width: var(--max-width-content);
+  .intro-button-block {
   margin-inline: auto;
   margin-bottom: 140px;
 }
@@ -67,12 +66,30 @@
 .painted-block {
   padding-top: 0;
 }
+@media (min-width: 1025px) {
+  .intro-button-block {
+  width: var(--max-width-content);
+  margin-inline: auto;
+  margin-bottom: 140px;
+}
 
+
+}
 /* TABLET (1024px and below) */
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .intro-button-block {
+    width: none;
+  }
+}
 
 /* MOBILE (768px and below) */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+
+  .intro-button-block {
+    width: none;
+  }
+
+}
 
 /* SMALL MOBILE (480px and below) */
 @media (max-width: 480px) {}
