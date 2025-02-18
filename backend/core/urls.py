@@ -15,7 +15,7 @@ from search import views as search_views
 logger = logging.getLogger(__name__)
 
 urlpatterns = [
-    path('home/', include('home.urls'), name='home'),
+    path('home/', include('home.urls')),
     path("django-admin/", admin.site.urls),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
