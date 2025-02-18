@@ -99,7 +99,11 @@
 @media (max-width: 1024px) {
     .intro-block {
         height: 100vh; /* Робить секцію на всю висоту екрану */
-
+    }
+      .intro-button-block {
+        margin-inline: auto;
+        margin-bottom: 15vh;
     }
 }
+
 

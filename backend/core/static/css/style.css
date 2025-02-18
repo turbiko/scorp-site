@@ -279,9 +279,108 @@ nav {
   }
 }
 
-/* -------------------------------- */
-@media (max-width: 767px) {
-    header {
+/* -------------------------------- *//* Приховати кнопку меню на десктопах */
+@media (min-width: 1025px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* Відображення кнопки тільки на мобільних та планшетах */
+
+
+/* Приховати кнопку на десктопах */
+@media (min-width: 1025px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* Стилізація кнопки меню на мобільних і планшетах */
+@media (max-width: 1024px) {
+  /* Забираємо дефолтні стилі кнопки */
+button#open-mobile-menu {
+    all: unset; /* Скидає всі дефолтні стилі */
+    width: 100%; /* Заповнює весь батьківський блок */
+    height: 100%; /* Заповнює весь батьківський блок */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+    .mobile-menu-toggle {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%; /* Кнопка займає 80% ширини екрану */
+        height: 60px; /* Фіксована висота */
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    .mobile-menu-toggle img {
+        width: 100%; /* Зображення займає всю ширину кнопки */
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* Мобільне меню на весь екран */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
         display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+
+    /* Відкрите меню */
+    .mobile-menu-overlay.active {
+        display: flex;
+    }
+
+    /* Елементи меню у вертикальну колонку */
+    .mobile-menu-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .mobile-menu-nav a {
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 15px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+
+    .mobile-menu-nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Кнопка закриття */
+    #close-mobile-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 }
