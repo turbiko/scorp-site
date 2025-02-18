@@ -6,13 +6,16 @@
   src: local("CrazyV1"), url("./crazyv1.woff") format("woff");
 }
 @font-face {
-  font-family: "Kyiv*Type Serif";
+  font-family: "KyivType Serif";
   font-style: normal;
-  src: local("Kyiv*Type Serif"),
+  src: local("KyivType Serif"),
     url("KyivTypeSerif-Regular.woff") format("woff");
 }
 /* variables */
 :root {
+  --main-color1: #6c5282;
+  --main-color2: #ffffff;
+
   --max-width-screen: 1920px;
   --max-width-content: 1550px;
   --min-width-desktop: 768px;
@@ -139,7 +142,7 @@ nav {
 }
 .footer-copy {
   color: var(--White, #fff);
-  font-family: "Kyiv*Type Serif";
+  font-family: "KyivType Serif";
   font-size: 12px;
   font-style: normal;
   font-weight: 200;
@@ -274,4 +277,11 @@ nav {
   .flex-row-between {
     flex-direction: column;
   }
+}
+
+/* -------------------------------- */
+@media (max-width: 767px) {
+    header {
+        display: none;
+    }
 }

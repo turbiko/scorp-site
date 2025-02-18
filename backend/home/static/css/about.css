@@ -18,7 +18,7 @@
   color: var(--White, #FFF);
 leading-trim: both;
 text-edge: cap;
-font-family: "Kyiv*Type Serif";
+font-family: "KyivType Serif";
 font-size: 28px;
 font-style: normal;
 font-weight: 200;
@@ -75,7 +75,7 @@ line-height: 65px; /* 232.143% */
   leading-trim: both;
   text-edge: cap;
   font-feature-settings: "salt" on;
-  font-family: "Kyiv*Type Serif";
+  font-family: "KyivType Serif";
   font-size: 17px;
   font-style: normal;
   font-weight: 200;

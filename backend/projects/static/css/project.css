@@ -45,7 +45,7 @@ h3 { text-transform: capitalize; }
 }
 .project-specifications h3 {
   color: #252525;
-  font-family: "Kyiv*Type Titling";
+  font-family: "KyivType Titling";
   font-size: 24px;
   font-style: normal;
   font-weight: 350;
@@ -54,7 +54,7 @@ h3 { text-transform: capitalize; }
 }
 .project-specifications p {
   color: #a1a1a1;
-  font-family: "Kyiv*Type Titling";
+  font-family: "KyivType Titling";
   font-size: 24px;
   font-style: normal;
   font-weight: 350;
@@ -67,7 +67,7 @@ h3 { text-transform: capitalize; }
   color: var(--Black, #000);
   leading-trim: both;
   text-edge: cap;
-  font-family: "Kyiv*Type Serif";
+  font-family: "KyivType Serif";
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -78,7 +78,7 @@ h3 { text-transform: capitalize; }
   color: var(--Black, #000);
   leading-trim: both;
   text-edge: cap;
-  font-family: "Kyiv*Type Serif";
+  font-family: "KyivType Serif";
   font-size: 18px;
   font-style: normal;
   font-weight: 500;

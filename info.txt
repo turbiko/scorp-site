@@ -1,0 +1,5 @@
+developer tech info
+os: windows
+ide: PyCharm
+Lang: Python
+project path: D:\git-folders\github\scorp-site\backend
