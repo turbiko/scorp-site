@@ -8,7 +8,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.info("Loaded PRODUCTION settings.")
 
-print(f"Loaded PRODUCTION settings {DEBUG=}")
+logger.info(f"Loaded PRODUCTION settings {DEBUG=}")
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 if not ALLOWED_HOSTS:
@@ -18,7 +18,7 @@ if not ALLOWED_HOSTS:
         "127.0.0.1",
         "localhost",
     ]
-print(f"Allowed hosts prod:{ALLOWED_HOSTS}")
+logger.info(f"Allowed hosts prod:{ALLOWED_HOSTS}")
 CSRF_TRUSTED_ORIGINS = [
     'https://*.dev.argentum.ua',
     'http://10.1.100.173',
