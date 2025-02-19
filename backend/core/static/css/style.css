@@ -283,7 +283,7 @@ nav {
 
 
 /* Приховати кнопку на десктопах */
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
     .mobile-menu-toggle {
         display: none !important;
     }
@@ -293,8 +293,11 @@ nav {
 }
 
 /* Стилізація кнопки меню на мобільних і планшетах */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   /* Забираємо дефолтні стилі кнопки */
+    header {
+        display: none;
+    }
 button#open-mobile-menu {
     all: unset; /* Скидає всі дефолтні стилі */
     width: 100%; /* Заповнює весь батьківський блок */
