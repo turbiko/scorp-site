@@ -155,6 +155,10 @@
 <div class="mobile-menu-overlay">
     <button id="close-mobile-menu">&times;</button>
     <nav class="mobile-menu-nav">
+        <!-- Логотип над пунктами меню -->
+        <div class="mobile-menu-logo">
+            <img src="{% static 'img/Logo-mobile.svg' %}" alt="Logo">
+        </div>
         {% if LANGUAGE_CODE == 'en' %}
             {% for item in navigation.menu_items.all %}
                 <a href="{{ item.link }}" class="menu__link {% if item.link == request.path %}active_nav{% endif %}">
