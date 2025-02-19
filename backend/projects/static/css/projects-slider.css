@@ -180,7 +180,11 @@
 @media (max-width: 1024px) {}
 
 /* MOBILE (768px and below) */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
+}
 
 /* SMALL MOBILE (480px and below) */
 @media (max-width: 480px) {}

@@ -279,19 +279,15 @@ nav {
   }
 }
 
-/* -------------------------------- *//* Приховати кнопку меню на десктопах */
-@media (min-width: 1025px) {
-    .mobile-menu-toggle {
-        display: none !important;
-    }
-}
-
 /* Відображення кнопки тільки на мобільних та планшетах */
 
 
 /* Приховати кнопку на десктопах */
 @media (min-width: 1025px) {
     .mobile-menu-toggle {
+        display: none !important;
+    }
+    .mobile-menu-overlay {
         display: none !important;
     }
 }
