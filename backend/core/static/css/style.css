@@ -294,36 +294,35 @@ nav {
 
 /* Стилізація кнопки меню на мобільних і планшетах */
 @media (max-width: 768px) {
-  /* Забираємо дефолтні стилі кнопки */
+   /* Приховати header */
     header {
         display: none;
     }
-button#open-mobile-menu {
-    all: unset; /* Скидає всі дефолтні стилі */
-    width: 100%; /* Заповнює весь батьківський блок */
-    height: 100%; /* Заповнює весь батьківський блок */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
+
     .mobile-menu-toggle {
         position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%; /* Кнопка займає 80% ширини екрану */
-        height: 60px; /* Фіксована висота */
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 10px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.9);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 1000;
+    }
+    /* Виправлення стилів кнопки */
+    button#open-mobile-menu {
+        all: unset;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
     }
 
-    .mobile-menu-toggle img {
+     .mobile-menu-toggle img {
         width: 100%; /* Зображення займає всю ширину кнопки */
         height: auto;
         object-fit: cover;
