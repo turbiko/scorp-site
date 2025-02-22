@@ -19,6 +19,7 @@
   --max-width-screen: 1920px;
   --max-width-content: 1550px;
   --min-width-desktop: 768px;
+  --min-width-mobile: 330px;
   --body-background: #383636;
   --max-width-tablets-landscape: 1024px;
   --max-width-tablets-portrait: 768px;
