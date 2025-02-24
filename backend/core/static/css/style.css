@@ -19,6 +19,7 @@
   --max-width-screen: 1920px;
   --max-width-content: 1550px;
   --min-width-desktop: 768px;
+  --max-width-mobile: 767px;
   --min-width-mobile: 330px;
   --body-background: #383636;
   --max-width-tablets-landscape: 1024px;
@@ -34,7 +35,7 @@
 /* default styling */
 html,
 body {
-  width: 100%;
+  width: min(100%);
   min-width: var(--min-width-desktop);
   color: var(--White, #fff);
   background: var(--body-background, #595959);
@@ -147,7 +148,7 @@ nav {
   font-size: 12px;
   font-style: normal;
   font-weight: 200;
-  line-height: 16px; /* 133.333% */
+  line-height: 16px;
 }
 .footer-copy a {
   color: var(--White, #fff);
@@ -262,6 +263,8 @@ nav {
   background-size: 100% auto;
 }
 
+
+
 /* TABLET (1024px and below) */
 @media (max-width: 1024px) {}
 
@@ -295,6 +298,10 @@ nav {
 
 /* Стилізація кнопки меню на мобільних і планшетах */
 @media (max-width: 768px) {
+    html,
+    body {
+        min-width: var(--min-width-mobile);
+    }
    /* Приховати header */
     header {
         display: none;
@@ -304,7 +311,7 @@ nav {
         position: fixed;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: 90%;
         height: 60px;
         background: rgba(0, 0, 0, 0.9);
         display: flex;
@@ -315,7 +322,7 @@ nav {
     /* Виправлення стилів кнопки */
     button#open-mobile-menu {
         all: unset;
-        width: 100%;
+        width: 90vw;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -382,4 +389,28 @@ nav {
         border: none;
         cursor: pointer;
     }
+    .footer-copy {
+  color: var(--White, #fff);
+  font-family: "KyivType Serif";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 16px; /* 133.333% */
+}
+    .footer {
+      margin-top: 48px;
+      max-width: var(--max-width-mobile);
+      /*min-width: var(--min-width-mobile);*/
+      margin-inline: auto;
+      padding-inline: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 13px;
+    }
+    .content-wrapper {
+  width: 100%;
+  min-width: var(--min-width-mobile);
+  padding-inline: 10px;
+}
 }

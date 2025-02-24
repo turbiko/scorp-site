@@ -82,6 +82,14 @@
 }
 }
 
+/* smaller desktop (1214px and below) */
+@media (max-width: 1214px) {
+   .service-item .service-title {
+    width: auto;
+	font-size: 32px;
+	font-style: normal;
+}
+}
 /* TABLET (1024px and below) */
 @media (max-width: 1024px) {
     .services-list {
