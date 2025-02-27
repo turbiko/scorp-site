@@ -309,7 +309,7 @@
     <script>
       const swiper = new Swiper(".swiper-container", {
         loop: false, // Циклічний скролінг = true
-        slidesPerView: 2, // Кількість слайдів для показу
+        slidesPerView: 3, // Кількість слайдів для показу
         spaceBetween: 20, // Відстань між слайдами
         navigation: {
           nextEl: ".swiper-button-next",
@@ -317,11 +317,12 @@
         },
         breakpoints: {
           // Правила для різних розмірів вікон
-          420: {
+          360: {
             slidesPerView: 1,
+            spaceBetween: 10,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 1,
           },
           1024: {
             slidesPerView: 2,

@@ -101,8 +101,37 @@
 /* TABLET (1024px and below) */
 @media (max-width: 1024px) {}
 
+
 /* MOBILE (768px and below) */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .swiper {
+    height: auto; /* Автоматична висота */
+  }
+
+  .swiper-slide {
+    width: 100%; /* Використовує всю ширину контейнера */
+    height: auto; /* Автоматично підлаштовується під контент */
+    aspect-ratio: 16 / 9; /* Пропорційне масштабування */
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Обрізає зайве, але зберігає пропорції */
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .hero-arrow-box {
+    width: 50px;
+    height: 50px;
+  }
+}
 
 /* SMALL MOBILE (480px and below) */
 @media (max-width: 480px) {}
