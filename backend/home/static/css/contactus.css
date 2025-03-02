@@ -39,7 +39,7 @@
 }
 .contact-form-block {
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   justify-content: space-between;
 }
 .input-block {
