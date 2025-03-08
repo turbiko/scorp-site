@@ -36,7 +36,7 @@
                <a href="{% pageurl service %}">
                    <div class="service-title">{{service.title}}</div>
                </a>
-            <div>{% translate "Services" %}: {{ service.get_children.live.count|default:0 }} </div>
+            <div>{% translate "Services" %}: {{ service.child_count }}</div>
           </div>
           {% endfor %}
         </div>

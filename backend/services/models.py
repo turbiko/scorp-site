@@ -155,9 +155,16 @@ class ServicesList(Page):
         logger.info(f'ServicesList (get_context) was accessed by {request.user} ')
         context = super().get_context(request)
         all_services = self.get_children().live().filter(locale=Locale.get_active())
+
+        # Add child count to each service
+        services_with_counts = []
+        for service in all_services:
+            service.child_count = service.get_children().live().count() or 0  # Ensure it defaults to 0
+            services_with_counts.append(service)
+
         logger.debug(f'Projects (get_context) for {request.user} {all_services.count()=}')
 
-        context['all_services'] = all_services
+        context['all_services'] = services_with_counts
 
         return context
 
