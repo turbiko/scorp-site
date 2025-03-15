@@ -155,6 +155,7 @@
   line-height: 50px; /* 94.34% */
   letter-spacing: 9.54px;
   text-transform: uppercase;
+  text-decoration: none
 }
 .projects-card__text {
   color: var(--05-bleach, var(--White, #fff));
